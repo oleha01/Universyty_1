@@ -9,6 +9,7 @@ namespace UnitTestForTask1
         [TestMethod]
         public void TestMethod1()
         {
+            Assert.AreEqual(0, 0);
         }
     }
 }
