@@ -54,5 +54,10 @@
       <Name>ClassLibraryForTask1</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="File.txt" />
+    <Content Include="File1.txt" />
+    <Content Include="File2.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

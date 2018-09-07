@@ -1,0 +1,10 @@
+﻿PhoneContact Roman +3801234567
+MailContact Roman romanko@blabla.com
+MailContact Ira Irynka@blabla.com
+SkypeContact Olejka oleha01
+MailContact Olejka oleh.but@blabla.com
+PhoneContact Ira +3809875426
+PhoneContact Olejka +3805648951
+PhoneContact Andrij +3809562435
+PhoneContact Taras +3803645815
+PhoneContact Kukla +3802635485
