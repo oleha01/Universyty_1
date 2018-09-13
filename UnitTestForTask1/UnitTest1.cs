@@ -31,5 +31,17 @@ namespace UnitTestForTask1
             phone1.ReadFromFile(sr);
             Assert.IsTrue(phone1.Name == "Roman," && phone1.NicknameInSkype  == "joni" && phone.Name == "Roman" && phone.NicknameInSkype == "joni");
         }
+        [TestMethod]
+        public void TestMethodForClassMailContact()
+        {
+            MailContact phone = new MailContact("Roman", "roman@gmail.com");
+            StreamWriter sw = new StreamWriter("FileForTest2.txt");
+            phone.WrtiteToFile(sw);
+            sw.Close();
+            StreamReader sr = new StreamReader("FileForTest2.txt");
+            MailContact phone1 = new MailContact();
+            phone1.ReadFromFile(sr);
+            Assert.IsTrue(phone1.Name == "Roman," && phone1.Email  == "roman@gmail.com" && phone.Name == "Roman" && phone.Email  == "roman@gmail.com");
+        }
     }
 }
