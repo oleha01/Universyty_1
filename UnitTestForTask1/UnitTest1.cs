@@ -19,5 +19,17 @@ namespace UnitTestForTask1
             phone1.ReadFromFile(sr);
             Assert.IsTrue(phone1.Name == "Roman," && phone1.Number == "+3801234567" && phone.Name == "Roman" && phone.Number == "+3801234567");
         }
+        [TestMethod]
+        public void TestMethodForClassSkypeContact()
+        {
+            SkypeContact phone = new SkypeContact("Roman", "joni");
+            StreamWriter sw = new StreamWriter("FileForTest1.txt");
+            phone.WrtiteToFile(sw);
+            sw.Close();
+            StreamReader sr = new StreamReader("FileForTest1.txt");
+            SkypeContact phone1 = new SkypeContact();
+            phone1.ReadFromFile(sr);
+            Assert.IsTrue(phone1.Name == "Roman," && phone1.NicknameInSkype  == "joni" && phone.Name == "Roman" && phone.NicknameInSkype == "joni");
+        }
     }
 }
