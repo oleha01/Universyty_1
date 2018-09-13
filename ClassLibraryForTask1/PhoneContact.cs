@@ -7,40 +7,40 @@ using System.Threading.Tasks;
 
 namespace Task1
 {
-  public class PhoneContact:Contact,IFileManager
-  {
-    public string number { get; set; }
-    public PhoneContact(string name_,string number_):base(name_)
+    public class PhoneContact : Contact, IFileManager
     {
-      number = number_;
-    }
-    public PhoneContact():base()
-      {
-      number="";
-}
+        public string number { get; set; }
+        public PhoneContact(string name_, string number_) : base(name_)
+        {
+            number = number_;
+        }
+        public PhoneContact() : base()
+        {
+            number = "";
+        }
 
-    public void ReadFromFile(StreamReader parth)
-    {
-      string Row=parth.ReadLine();
-            string[] s=Row.Split(' ');
-            name=s[0];
-            number=s[1];
-    }
+        public void ReadFromFile(StreamReader parth)
+        {
+            string Row = parth.ReadLine();
+            string[] s = Row.Split(' ');
+            name = s[0];
+            number = s[1];
+        }
 
-    public void WrtiteToFile(StreamWriter parth)
-    {
-            parth.WriteLine("{0}, {1}",name,number);
-    }
+        public void WrtiteToFile(StreamWriter parth)
+        {
+            parth.WriteLine("{0}, {1}", name, number);
+        }
         public override string ToString()
         {
-           
-           return String.Format("{0}, {1}\n",name,number);
-        }
-       public int CompareTo(object obj)
-            {
-            var element2=obj as IFileManager;
-           return String.Compare(name,element2.name);
 
-}
+            return String.Format("{0}, {1}\n", name, number);
+        }
+        public int CompareTo(object obj)
+        {
+            var element2 = obj as IFileManager;
+            return String.Compare(name, element2.name);
+
+        }
     }
 }

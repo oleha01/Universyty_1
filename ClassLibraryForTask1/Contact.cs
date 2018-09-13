@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task1
+﻿namespace Task1
 {
     public class Contact
     {
@@ -15,7 +9,7 @@ namespace Task1
         }
         public Contact()
         {
-            name = "";
+            name = string.Empty;
         }
     }
 }
