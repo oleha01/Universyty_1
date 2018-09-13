@@ -17,7 +17,7 @@ namespace UnitTestForTask1
             StreamReader sr = new StreamReader("FileForTest.txt");
             PhoneContact phone1 = new PhoneContact();
             phone1.ReadFromFile(sr);
-            Assert.IsTrue(phone1.name == "Roman," && phone1.number == "+3801234567" && phone.name == "Roman" && phone.number == "+3801234567");
+            Assert.IsTrue(phone1.Name == "Roman," && phone1.Number == "+3801234567" && phone.Name == "Roman" && phone.Number == "+3801234567");
         }
     }
 }

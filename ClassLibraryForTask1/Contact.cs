@@ -1,15 +1,20 @@
-﻿namespace Task1
+﻿/// <summary>
+/// 
+/// </summary>
+namespace Task1
 {
     public class Contact
     {
-        public string name { get; set; }
         public Contact(string name_)
         {
-            name = name_;
+            this.Name = name_;
         }
+
         public Contact()
         {
-            name = string.Empty;
+            this.Name = string.Empty;
         }
+
+        public string Name { get; set; }
     }
 }

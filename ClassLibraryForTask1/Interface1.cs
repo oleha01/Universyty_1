@@ -1,11 +1,14 @@
-﻿using System;
-using System.IO;
-namespace Task1
+﻿namespace Task1
 {
-    public interface IFileManager:IComparable
+    using System;
+    using System.IO;
+
+    public interface IFileManager : IComparable
     {
-        string name{get;set;}
+        string Name { get; set; }
+
         void ReadFromFile(StreamReader parth);
+
         void WrtiteToFile(StreamWriter parth);
     }
 }
