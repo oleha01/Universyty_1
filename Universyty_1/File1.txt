@@ -1,10 +1,12 @@
 Andrij, +3809562435
+Baby, +3802635485
 Ira, Irynka@blabla.com
 Ira, +3809875426
-Kukla, +3802635485
+Kira, Irena
 Olejka, oleha01
 Olejka, oleh.but@blabla.com
 Olejka, +3805648951
 Roman, +3801234567
 Roman, romanko@blabla.com
 Taras, +3803645815
+Tonia, Lausdio
