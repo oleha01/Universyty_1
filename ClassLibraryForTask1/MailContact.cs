@@ -1,8 +1,8 @@
-﻿namespace Task1
-{
-    using System;
-    using System.IO;
+﻿using System;
+using System.IO;
 
+namespace Task1
+{
     public class MailContact : Contact, IFileManager
     {
         public MailContact(string name_, string email_) : base(name_)

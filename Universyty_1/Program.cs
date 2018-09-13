@@ -1,11 +1,11 @@
-﻿namespace Task1
-{
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
+namespace Task1
+{
     public class Program
     {
         private static void Main(string[] args)

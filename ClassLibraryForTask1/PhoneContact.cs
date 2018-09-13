@@ -1,8 +1,8 @@
+using System;
+using System.IO;
+
 namespace Task1
 {
-    using System;
-    using System.IO;
-
     public class PhoneContact : Contact, IFileManager
     {
         public PhoneContact(string name_, string number_) : base(name_)

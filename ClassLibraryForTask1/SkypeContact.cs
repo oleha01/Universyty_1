@@ -1,8 +1,8 @@
-﻿namespace Task1
-{
-    using System;
-    using System.IO;
+﻿using System;
+using System.IO;
 
+namespace Task1
+{
     public class SkypeContact : Contact, IFileManager
     {
         public SkypeContact(string name_, string nicknameInSkype_) : base(name_)
