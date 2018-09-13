@@ -53,8 +53,7 @@ namespace Task1
                             break;
                         }
                     default:
-                        throw new Exception("Не правильні дані");
-                        break;
+                        throw new Exception("Incorrect data");
                 }
                 typeContact = "";
             }
