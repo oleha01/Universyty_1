@@ -7,12 +7,12 @@
     {
         public MailContact(string name_, string email_) : base(name_)
         {
-            Email = email_;
+            this.Email = email_;
         }
 
         public MailContact() : base()
         {
-            Email = string.Empty;
+            this.Email = string.Empty;
         }
 
         public string Email { get; set; }
@@ -21,24 +21,24 @@
         {
             string row = parth.ReadLine();
             string[] s = row.Split(' ');
-            Name = s[0];
-            Email = s[1];
+            this.Name = s[0];
+            this.Email = s[1];
         }
 
         public void WrtiteToFile(StreamWriter parth)
         {
-            parth.WriteLine("{0}, {1}", Name, Email);
+            parth.WriteLine("{0}, {1}", this.Name, this.Email);
         }
 
         public override string ToString()
         {
-            return String.Format("{0}, {1}\n", Name, Email);
+            return string.Format("{0}, {1}\n", this.Name, this.Email);
         }
 
         public int CompareTo(object obj)
         {
             var element2 = obj as IFileManager;
-            return String.Compare(Name, element2.Name);
+            return string.Compare(this.Name, element2.Name);
         }
     }
 }

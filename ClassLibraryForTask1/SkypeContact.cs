@@ -7,12 +7,12 @@
     {
         public SkypeContact(string name_, string nicknameInSkype_) : base(name_)
         {
-            NicknameInSkype = nicknameInSkype_;
+            this.NicknameInSkype = nicknameInSkype_;
         }
 
         public SkypeContact() : base()
         {
-            NicknameInSkype = string.Empty;
+            this.NicknameInSkype = string.Empty;
         }
 
         public string NicknameInSkype { get; set; }
@@ -21,24 +21,24 @@
         {
             string row = parth.ReadLine();
             string[] s = row.Split(' ');
-            Name = s[0];
-            NicknameInSkype = s[1];
+            this.Name = s[0];
+            this.NicknameInSkype = s[1];
         }
 
         public void WrtiteToFile(StreamWriter parth)
         {
-            parth.WriteLine("{0}, {1}", Name, NicknameInSkype);
+            parth.WriteLine("{0}, {1}", this.Name, this.NicknameInSkype);
         }
 
         public override string ToString()
         {
-            return String.Format("{0}, {1}\n", Name, NicknameInSkype);
+            return string.Format("{0}, {1}\n", this.Name, this.NicknameInSkype);
         }
 
         public int CompareTo(object obj)
         {
             var element2 = obj as IFileManager;
-            return String.Compare(Name, element2.Name);
+            return string.Compare(this.Name, element2.Name);
         }
     }
 }

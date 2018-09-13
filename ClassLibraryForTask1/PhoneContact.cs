@@ -7,12 +7,12 @@ namespace Task1
     {
         public PhoneContact(string name_, string number_) : base(name_)
         {
-            Number = number_;
+            this.Number = number_;
         }
 
         public PhoneContact() : base()
         {
-            Number = string.Empty;
+            this.Number = string.Empty;
         }
 
         public string Number { get; set; }
@@ -21,24 +21,24 @@ namespace Task1
         {
             string row = parth.ReadLine();
             string[] s = row.Split(' ');
-            Name = s[0];
-            Number = s[1];
+            this.Name = s[0];
+            this.Number = s[1];
         }
 
         public void WrtiteToFile(StreamWriter parth)
         {
-            parth.WriteLine("{0}, {1}", Name, Number);
+            parth.WriteLine("{0}, {1}", this.Name, this.Number);
         }
 
         public override string ToString()
         {
-            return String.Format("{0}, {1}\n", Name, Number);
+            return string.Format("{0}, {1}\n", this.Name, this.Number);
         }
 
         public int CompareTo(object obj)
         {
             var element2 = obj as IFileManager;
-            return String.Compare(Name, element2.Name);
+            return string.Compare(this.Name, element2.Name);
         }
     }
 }

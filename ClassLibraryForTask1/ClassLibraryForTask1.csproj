@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="Contact.cs" />
     <Compile Include="Interface1.cs" />
-    <Compile Include="MailContact.cs" />
+    <Compile Include="MailContact.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="PhoneContact.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SkypeContact.cs" />

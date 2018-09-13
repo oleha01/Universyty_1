@@ -6,9 +6,9 @@
     using System.IO;
     using System.Linq;
 
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             string direc = Directory.GetParent(
             Directory.GetParent(
