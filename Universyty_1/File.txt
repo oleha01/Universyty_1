@@ -2,9 +2,11 @@
 MailContact Roman romanko@blabla.com
 MailContact Ira Irynka@blabla.com
 SkypeContact Olejka oleha01
+SkypeContact Tonia Lausdio
+SkypeContact Kira Irena
 MailContact Olejka oleh.but@blabla.com
 PhoneContact Ira +3809875426
 PhoneContact Olejka +3805648951
 PhoneContact Andrij +3809562435
 PhoneContact Taras +3803645815
-PhoneContact Kukla +3802635485
+PhoneContact Baby +3802635485
