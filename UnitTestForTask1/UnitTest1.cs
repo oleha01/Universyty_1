@@ -1,7 +1,7 @@
-﻿using System;
+﻿using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
 using Task1;
+
 namespace UnitTestForTask1
 {
     [TestClass]
@@ -19,6 +19,7 @@ namespace UnitTestForTask1
             phone1.ReadFromFile(sr);
             Assert.IsTrue(phone1.Name == "Roman," && phone1.Number == "+3801234567" && phone.Name == "Roman" && phone.Number == "+3801234567");
         }
+
         [TestMethod]
         public void TestMethodForClassSkypeContact()
         {
@@ -31,6 +32,7 @@ namespace UnitTestForTask1
             phone1.ReadFromFile(sr);
             Assert.IsTrue(phone1.Name == "Roman," && phone1.NicknameInSkype  == "joni" && phone.Name == "Roman" && phone.NicknameInSkype == "joni");
         }
+
         [TestMethod]
         public void TestMethodForClassMailContact()
         {
