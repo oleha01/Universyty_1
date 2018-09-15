@@ -27,13 +27,13 @@ namespace Task1
         /// <summary>
         /// Reads info from the file.
         /// </summary>
-        /// <param name="parth">The path to the file.</param>
-        void ReadFromFile(StreamReader parth);
+        /// <param name="path">The path to the file.</param>
+        void ReadFromFile(StreamReader path);
 
         /// <summary>
         /// Writes info to the file.
         /// </summary>
-        /// <param name="parth">The path to the file.</param>
-        void WrtiteToFile(StreamWriter parth);
+        /// <param name="path">The path to the file.</param>
+        void WrtiteToFile(StreamWriter path);
     }
 }

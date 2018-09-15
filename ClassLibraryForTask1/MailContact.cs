@@ -47,10 +47,10 @@ namespace Task1
         /// <summary>
         /// Reads info from the file.
         /// </summary>
-        /// <param name="parth">The path to the file.</param>
-        public void ReadFromFile(StreamReader parth)
+        /// <param name="path">The path to the file.</param>
+        public void ReadFromFile(StreamReader path)
         {
-            string row = parth.ReadLine();
+            string row = path.ReadLine();
             string[] s = row.Split(' ');
             this.Name = s[0];
             this.Email = s[1];
@@ -59,10 +59,10 @@ namespace Task1
         /// <summary>
         /// Writes info to the file.
         /// </summary>
-        /// <param name="parth">The path to the file.</param>
-        public void WrtiteToFile(StreamWriter parth)
+        /// <param name="path">The path to the file.</param>
+        public void WrtiteToFile(StreamWriter path)
         {
-            parth.WriteLine("{0}, {1}", this.Name, this.Email);
+            path.WriteLine("{0}, {1}", this.Name, this.Email);
         }
 
         /// <summary>
