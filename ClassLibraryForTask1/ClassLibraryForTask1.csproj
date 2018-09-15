@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contact.cs" />
-    <Compile Include="Interface1.cs" />
+    <Compile Include="IFileManager.cs" />
     <Compile Include="MailContact.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>

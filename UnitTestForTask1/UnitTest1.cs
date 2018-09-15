@@ -1,12 +1,28 @@
-﻿using System.IO;
+﻿//-----------------------------------------------------------------------
+// <copyright file="UnitTest1.cs" company="LNU">
+//     Copyright (c) Top Coders. All rights reserved.
+// </copyright>
+// <author>Burdein Irina</author>
+// <author>Butry Oleg</author>
+// <author>Ivanova Antonina</author>
+// <author>Koltun Roman</author>
+// <date> " + DateTime.Now + @"</date>
+//-----------------------------------------------------------------------
+using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Task1;
 
 namespace UnitTestForTask1
 {
+    /// <summary>
+    /// Unit tests for the program.
+    /// </summary>
     [TestClass]
     public class UnitTest1
     {
+        /// <summary>
+        /// Tests whether the program correctly writes and reads <c>Name</c> and <c>Phone</c> from the file.
+        /// </summary>
         [TestMethod]
         public void TestMethodForClassPhoneContact()
         {
@@ -20,6 +36,9 @@ namespace UnitTestForTask1
             Assert.IsTrue(phone1.Name == "Roman," && phone1.Number == "+3801234567" && phone.Name == "Roman" && phone.Number == "+3801234567");
         }
 
+        /// <summary>
+        /// Tests whether the program correctly writes and reads <c>Name</c> and <c>NicknameInSkype</c> from the file.
+        /// </summary>
         [TestMethod]
         public void TestMethodForClassSkypeContact()
         {
@@ -33,6 +52,9 @@ namespace UnitTestForTask1
             Assert.IsTrue(phone1.Name == "Roman," && phone1.NicknameInSkype  == "joni" && phone.Name == "Roman" && phone.NicknameInSkype == "joni");
         }
 
+        /// <summary>
+        /// Tests whether the program correctly writes and reads <c>Name</c> and <c>Email</c> from the file.
+        /// </summary>
         [TestMethod]
         public void TestMethodForClassMailContact()
         {

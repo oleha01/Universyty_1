@@ -1,4 +1,14 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Program.cs" company="LNU">
+//     Copyright (c) Top Coders. All rights reserved.
+// </copyright>
+// <author>Burdein Irina</author>
+// <author>Butry Oleg</author>
+// <author>Ivanova Antonina</author>
+// <author>Koltun Roman</author>
+// <date> " + DateTime.Now + @"</date>
+//-----------------------------------------------------------------------
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -6,8 +16,15 @@ using System.Linq;
 
 namespace Task1
 {
+    /// <summary>
+    /// The main program.
+    /// </summary>
     public class Program
     {
+        /// <summary>
+        /// The body of the main program.
+        /// </summary>
+        /// <param name="args"><c>args</c> will be passed when starting this program.</param>
         private static void Main(string[] args)
         {
             string direc = Directory.GetParent(
