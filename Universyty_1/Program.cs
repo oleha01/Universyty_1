@@ -22,9 +22,11 @@ namespace Task1
     public class Program
     {
         /// <summary>
-        /// The body of the main program.
+        /// Reads and sorts data from files.
+        /// Writes data in file.
+        /// Catches some exceptions.
         /// </summary>
-        /// <param name="args"><c>args</c> will be passed when starting this program.</param>
+        /// <param name="args">Will be passed when starting this program.</param>
         private static void Main(string[] args)
         {
             string direc = Directory.GetParent(

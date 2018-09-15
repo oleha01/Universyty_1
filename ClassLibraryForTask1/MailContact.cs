@@ -14,7 +14,7 @@ namespace Task1
 {
     /// <summary>
     /// The <c>MailContact</c> class that iherit from the abstract <c>Contact</c> class.
-    /// Contains the <c>Email</c> of the person.
+    /// Contains the <paramref>Email</paramref> of the person.
     /// Implament <c>IFileManager</c> interface.
     /// </summary>
     public class MailContact : Contact, IFileManager

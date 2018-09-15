@@ -14,7 +14,7 @@ namespace Task1
 {
     /// <summary>
     /// The <c>SkypeContact</c> class that iherit from the abstract <c>Contact</c> class.
-    /// Contains the <c>NicknameInSkype</c> of the person.
+    /// Contains the <paramref>NicknameInSkype</paramref> of the person.
     /// Implament <c>IFileManager</c> interface.
     /// </summary>
     public class SkypeContact : Contact, IFileManager

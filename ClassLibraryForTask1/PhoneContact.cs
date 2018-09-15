@@ -14,7 +14,7 @@ namespace Task1
 {
     /// <summary>
     /// The <c>PhoneContact</c> class that iherit from the abstract <c>Contact</c> class.
-    /// Contains the <c>Phone</c> of the person.
+    /// Contains the <paramref>Phone</paramref> of the person.
     /// Implament <c>IFileManager</c> interface.
     /// </summary>
     public class PhoneContact : Contact, IFileManager

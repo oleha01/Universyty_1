@@ -21,7 +21,8 @@ namespace UnitTestForTask1
     public class UnitTest1
     {
         /// <summary>
-        /// Tests whether the program correctly writes and reads <c>Name</c> and <c>Phone</c> from the file.
+        /// Tests whether the program correctly writes and reads 
+        /// <paramref>Name</paramref> and <paramref>Phone</paramref> from the file.
         /// </summary>
         [TestMethod]
         public void TestMethodForClassPhoneContact()
@@ -37,7 +38,8 @@ namespace UnitTestForTask1
         }
 
         /// <summary>
-        /// Tests whether the program correctly writes and reads <c>Name</c> and <c>NicknameInSkype</c> from the file.
+        /// Tests whether the program correctly writes and reads 
+        /// <paramref>Name</paramref> and <paramref>NicknameInSkype</paramref> from the file.
         /// </summary>
         [TestMethod]
         public void TestMethodForClassSkypeContact()
@@ -53,7 +55,8 @@ namespace UnitTestForTask1
         }
 
         /// <summary>
-        /// Tests whether the program correctly writes and reads <c>Name</c> and <c>Email</c> from the file.
+        /// Tests whether the program correctly writes and reads 
+        /// <paramref>Name</paramref> and <paramref>Email</paramref> from the file.
         /// </summary>
         [TestMethod]
         public void TestMethodForClassMailContact()

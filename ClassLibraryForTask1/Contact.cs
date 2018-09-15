@@ -12,7 +12,7 @@ namespace Task1
 {
     /// <summary>
     /// The abstract <c>Contact</c> class.
-    /// Contains the <c>Name</c> of the person.
+    /// Contains the <paramref>Name</paramref> of the person.
     /// </summary>
     public class Contact
     {
