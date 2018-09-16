@@ -31,9 +31,11 @@ namespace UnitTestForTask1
             StreamWriter sw = new StreamWriter("FileForTest.txt");
             phone.WrtiteToFile(sw);
             sw.Close();
-            StreamReader sr = new StreamReader("FileForTest.txt");
             PhoneContact phone1 = new PhoneContact();
-            phone1.ReadFromFile(sr);
+            using (StreamReader sr = new StreamReader("FileForTest.txt"))
+            {
+                phone1.ReadFromFile(sr);
+            }
             Assert.IsTrue(phone1.Name == "Roman," && phone1.Number == "+3801234567" && phone.Name == "Roman" && phone.Number == "+3801234567");
         }
 
@@ -45,12 +47,15 @@ namespace UnitTestForTask1
         public void TestMethodForClassSkypeContact()
         {
             SkypeContact phone = new SkypeContact("Roman", "joni");
-            StreamWriter sw = new StreamWriter("FileForTest1.txt");
+            StreamWriter sw = new StreamWriter("FileForTest.txt");
             phone.WrtiteToFile(sw);
             sw.Close();
-            StreamReader sr = new StreamReader("FileForTest1.txt");
             SkypeContact phone1 = new SkypeContact();
-            phone1.ReadFromFile(sr);
+            using (StreamReader sr = new StreamReader("FileForTest.txt"))
+            {
+                phone1.ReadFromFile(sr);
+            }
+            
             Assert.IsTrue(phone1.Name == "Roman," && phone1.NicknameInSkype  == "joni" && phone.Name == "Roman" && phone.NicknameInSkype == "joni");
         }
 
@@ -62,12 +67,15 @@ namespace UnitTestForTask1
         public void TestMethodForClassMailContact()
         {
             MailContact phone = new MailContact("Roman", "roman@gmail.com");
-            StreamWriter sw = new StreamWriter("FileForTest2.txt");
+            StreamWriter sw = new StreamWriter("FileForTest.txt");
             phone.WrtiteToFile(sw);
             sw.Close();
-            StreamReader sr = new StreamReader("FileForTest2.txt");
             MailContact phone1 = new MailContact();
-            phone1.ReadFromFile(sr);
+            using (StreamReader sr = new StreamReader("FileForTest.txt"))
+            {
+
+                phone1.ReadFromFile(sr);
+            }
             Assert.IsTrue(phone1.Name == "Roman," && phone1.Email  == "roman@gmail.com" && phone.Name == "Roman" && phone.Email  == "roman@gmail.com");
         }
     }
