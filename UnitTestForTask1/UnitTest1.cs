@@ -12,9 +12,6 @@ using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Task1;
 
-
-
-
 namespace UnitTestForTask1
 {
     /// <summary>
@@ -39,6 +36,7 @@ namespace UnitTestForTask1
             {
                 phone1.ReadFromFile(sr);
             }
+
             Assert.IsTrue(phone1.Name == "Roman," && phone1.Number == "+3801234567" && phone.Name == "Roman" && phone.Number == "+3801234567");
         }
 
@@ -76,9 +74,9 @@ namespace UnitTestForTask1
             MailContact phone1 = new MailContact();
             using (StreamReader sr = new StreamReader("FileForTest.txt"))
             {
-
                 phone1.ReadFromFile(sr);
             }
+
             Assert.IsTrue(phone1.Name == "Roman," && phone1.Email  == "roman@gmail.com" && phone.Name == "Roman" && phone.Email  == "roman@gmail.com");
         }
     }

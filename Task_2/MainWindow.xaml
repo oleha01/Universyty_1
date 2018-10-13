@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Canvas x:Name="canvas" MouseLeftButtonDown="canvas_MouseLeftButtonDown" MouseLeftButtonUp="canvas_MouseLeftButtonUp" 
-            MouseMove="canvas_MouseMove" Background="Transparent" >
+    <Canvas x:Name="canvas" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" MouseLeftButtonUp="Canvas_MouseLeftButtonUp" 
+            MouseMove="Canvas_MouseMove" Background="Transparent" >
 
 
         <Menu >
@@ -16,7 +16,7 @@
                 <MenuItem Header="Open" Click="MenuItem_Click_1"></MenuItem>
                 <MenuItem Header="Save" Click="MenuItem_Click_2"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Shapes" Name="shapesMenu" Click="shapesMenu_Click"></MenuItem>
+            <MenuItem Header="Shapes" Name="shapesMenu" Click="ShapesMenu_Click"></MenuItem>
         </Menu>
 
 
