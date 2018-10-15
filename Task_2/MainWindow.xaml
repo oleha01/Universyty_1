@@ -16,7 +16,7 @@
                 <MenuItem Header="Open" Click="MenuItem_Click_1"></MenuItem>
                 <MenuItem Header="Save" Click="MenuItem_Click_2"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Shapes" Name="shapesMenu" Click="ShapesMenu_Click"></MenuItem>
+            <MenuItem Header="Shapes" Name="shapesMenu"></MenuItem>
         </Menu>
 
 
