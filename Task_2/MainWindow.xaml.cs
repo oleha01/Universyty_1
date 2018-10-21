@@ -27,7 +27,9 @@ namespace WpfApp1
         /// <summary>
         /// Dictionary that stores name and value of coloures.
         /// </summary>
-        private Dictionary<string, byte[]> forColor;
+       private Dictionary<string, SolidColorBrush> forColor;
+       
+        XmlSerializer xm = new XmlSerializer(typeof(Ellipse1[]));
 
         /// <summary>
         /// Stores context menu.
@@ -48,6 +50,8 @@ namespace WpfApp1
         /// List that stores array of ellipses.
         /// </summary>
         private List<Ellipse> arr;
+        
+         private Ellipse1[] arrSerz;
 
         /// <summary>
         /// Points of current ellipse.
@@ -69,12 +73,13 @@ namespace WpfApp1
         /// </summary>
         public MainWindow()
         {
-            this.InitializeComponent();
+           this.InitializeComponent();
+            arrSerz = new Ellipse1[25];
             this.remap = false;
-            this.forColor = new Dictionary<string, byte[]>();
-            this.forColor.Add("Red", new byte[] { 255, 0, 0 });
-            this.forColor.Add("Green", new byte[] { 0, 255, 0 });
-            this.forColor.Add("Blue", new byte[] { 0, 0, 255 });
+            this.forColor = new Dictionary<string, SolidColorBrush>();
+            this.forColor.Add("Red", Brushes.Red);
+            this.forColor.Add("Green", Brushes.Green);
+            this.forColor.Add("Blue", Brushes.Blue);
             MenuItem m1 = new MenuItem();
             MenuItem m2 = new MenuItem();
             MenuItem m3 = new MenuItem();
@@ -99,8 +104,9 @@ namespace WpfApp1
         private void ColorFilling(MenuItem sender)
         {
             // MessageBox.Show(sender.Header.ToString());
-            var a = this.forColor[sender.Header.ToString()];
-            this.last.Fill = new SolidColorBrush(Color.FromRgb(a[0], a[1], a[2]));
+           var a = this.forColor[sender.Header.ToString()];
+            this.last.Fill = a;
+            arrSerz[arr.Count - 1].br = sender.Header.ToString();
         }
 
         /// <summary>
