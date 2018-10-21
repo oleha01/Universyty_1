@@ -19,8 +19,8 @@ namespace WpfApp1
     using System.Windows.Media;
     using System.Windows.Shapes;
     using Microsoft.Win32;
-    using Task_2;
     using System.Xml.Serialization;
+    using System.Windows.Data;
 
 
     /// <summary>
@@ -35,7 +35,9 @@ namespace WpfApp1
         public MainWindow()
         {
             this.InitializeComponent();
-            dr = new Draw(canvas, shapesMenu);
+           
+            dr = new Draw(canvas, shapesMenu,this);
+            
         }
 
         private void ShapesMenu_Click(object sender, MouseButtonEventArgs e)
@@ -72,7 +74,7 @@ namespace WpfApp1
         }
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-            dr.SaveFIle("Text1.txt");
+            dr.SaveFIle();
         }
 
        
@@ -82,6 +84,9 @@ namespace WpfApp1
             
         }
 
-        
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            dr.SaveAs();
+        }
     }
 }

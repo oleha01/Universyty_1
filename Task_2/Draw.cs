@@ -10,6 +10,7 @@ using Task_2;
 using WpfApp1;
 using System.Xml.Serialization;
 using System;
+using System.Windows.Data;
 
 namespace WpfApp1
 {
@@ -18,10 +19,13 @@ namespace WpfApp1
         Canvas canvas;
         Ellipse1 Null;
         MenuItem shapesMenu;
-        public Draw(Canvas coco, MenuItem f)
+        MainWindow window;
+        public string path = "*.*";
+        public Draw(Canvas coco, MenuItem f, MainWindow mm)
         {
             canvas = coco;
             shapesMenu = f;
+            window = mm;
             Null = new Ellipse1("NULL");
             arrSerz = new Ellipse1[25];
             this.remap = false;
@@ -37,10 +41,14 @@ namespace WpfApp1
 
             this.cont.Items.Add(m1);
             this.cont.Items.Add(m2);
-            for(int i=0;i<25;i++)
+            for (int i = 0; i < 25; i++)
             {
-                arrSerz[i] =Null ;
+                arrSerz[i] = Null;
             }
+            Binding binding = new Binding();
+
+            binding.ElementName = path;
+            window.SetBinding(MainWindow.TitleProperty, path);
         }
         /// <summary>
         /// Dictionary that stores name and value of coloures.
@@ -117,9 +125,17 @@ namespace WpfApp1
         /// Function that helps to save current canvas to the text file.
         /// </summary>
         /// <param name="path">The path to the file.</param>
-        public void SaveFIle(string path)
+        public void SaveFIle()
         {
-            using (FileStream fs = new FileStream("Elipse.xml", FileMode.OpenOrCreate))
+            if (path == "*.*")
+            {
+                SaveFileDialog save = new SaveFileDialog();
+                if (save.ShowDialog() == true)
+                {
+                    path = save.FileName;
+                }
+            }
+            using (StreamWriter fs = new StreamWriter(path))
             {
                 xm.Serialize(fs, arrSerz);
             }
@@ -135,7 +151,9 @@ namespace WpfApp1
             canvas.Children.RemoveRange(1, canvas.Children.Count);
             last = null;
             current = null;
-            using (FileStream fs = new FileStream("Elipse.xml", FileMode.OpenOrCreate))
+            this.path = path;
+
+            using (StreamReader fs = new StreamReader(path))
             {
                 arrSerz = (Ellipse1[])xm.Deserialize(fs);
             }
@@ -154,7 +172,7 @@ namespace WpfApp1
             elipse.MouseRightButtonDown += Elipse_MouseRightButtonDown;
             int h = arr.Count;
             item1.Header = "Elipse" + (shapesMenu.Items.Count + 1).ToString();
-            item1.Click += (object c, RoutedEventArgs e) => this.RemapShapes(h-1);
+            item1.Click += (object c, RoutedEventArgs e) => this.RemapShapes(h - 1);
             elipse.Name = "E" + h.ToString();
             shapesMenu.Items.Add(item1);
             elipse.MouseRightButtonDown += Elipse_MouseRightButtonDown;
@@ -276,7 +294,7 @@ namespace WpfApp1
                 p2 = Mouse.GetPosition(this.canvas);
                 DrawElipse(p1, p2, false);
                 isMove = true;
-                last.ContextMenu.IsOpen = true;
+
             }
             else
             {
@@ -300,6 +318,19 @@ namespace WpfApp1
                 arrSerz[arr.IndexOf(current)].LeftProperty = left;
                 arrSerz[arr.IndexOf(current)].TopProperty = top;
                 p1 = p;
+            }
+        }
+        public void SaveAs()
+        {
+            SaveFileDialog save = new SaveFileDialog();
+            if (save.ShowDialog() == true)
+            {
+                path = save.FileName;
+            }
+
+            using (StreamWriter fs = new StreamWriter(path))
+            {
+                xm.Serialize(fs, arrSerz);
             }
         }
     }
