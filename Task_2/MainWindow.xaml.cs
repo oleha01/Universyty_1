@@ -196,18 +196,10 @@ namespace WpfApp1
         /// <param name="path">The path to the file.</param>
         private void SaveFIle(string path)
         {
-            StreamWriter sw = new StreamWriter(path);
-            foreach (var el in this.arr)
+            using (FileStream fs = new FileStream("Elipse.xml", FileMode.OpenOrCreate))
             {
-                sw.WriteLine(
-                    "{0} {1} {2} {3}",
-                    el.GetValue(Canvas.LeftProperty),
-                    el.GetValue(Canvas.TopProperty),
-                    el.ActualHeight,
-                    el.ActualWidth);
+                xm.Serialize(fs, arrSerz);
             }
-
-            sw.Close();
         }
 
         /// <summary>
@@ -216,19 +208,18 @@ namespace WpfApp1
         /// <param name="path">The path to the file.</param>
         private void ReadFromFile(string path)
         {
-            StreamReader sr = new StreamReader(path);
-            string s = sr.ReadToEnd();
-            var s1 = s.Split('\n');
-            for (int i = 0; i < s1.Length; i++)
+           arr = new List<Ellipse>();
+            shapesMenu.Items.Clear();
+            canvas.Children.RemoveRange(1, canvas.Children.Count);
+            last = null;
+            current = null;
+            using (FileStream fs = new FileStream("Elipse.xml", FileMode.OpenOrCreate))
             {
-                var s2 = s1[i].Split(' ');
-                Ellipse el = new Ellipse();
-                el.SetValue(Canvas.LeftProperty, int.Parse(s2[0]));
-                el.SetValue(Canvas.TopProperty, int.Parse(s2[1]));
-                el.Height = int.Parse(s2[2]);
-                el.Width = int.Parse(s2[3]);
-                this.arr.Add(el);
-                canvas.Children.Add(el);
+                arrSerz = (Ellipse1[])xm.Deserialize(fs);
+            }
+            foreach(var el in arrSerz)
+            {if(el!=null)
+                Draw(el);
             }
         }
 
@@ -260,38 +251,41 @@ namespace WpfApp1
         /// <param name="move">Boolean value, that indicates whether ellipse is movable.</param>
         private void DrawElipse(Point start, Point stop, bool move)
         {
-            Ellipse elipse = new Ellipse();
+            
+            Ellipse1 elipse1 = new Ellipse1();
 
-            elipse.ContextMenu = this.cont;
-            this.last = elipse;
-            elipse.Stroke = Brushes.Black;
-            elipse.SetValue(Canvas.LeftProperty, start.X);
-            elipse.SetValue(Canvas.TopProperty, start.Y);
+            elipse1.LeftProperty = start.X;
+            elipse1.TopProperty = start.Y;
+           
+            
             if (stop.X - start.X >= 0)
             {
-                elipse.Width = stop.X - start.X;
+                elipse1.Width = stop.X - start.X;
             }
             else
             {
-                elipse.Width = start.X - stop.X;
-                elipse.SetValue(Canvas.LeftProperty, stop.X);
+                elipse1.Width = start.X - stop.X;
+                elipse1.LeftProperty= stop.X;
             }
 
             if (stop.Y - start.Y >= 0)
             {
-                elipse.Height = stop.Y - start.Y;
+                elipse1.Height = stop.Y - start.Y;
             }
             else
             {
-                elipse.Height = start.Y - stop.Y;
-                elipse.SetValue(Canvas.TopProperty, stop.Y);
+                elipse1.Height = start.Y - stop.Y;
+                elipse1.TopProperty=stop.Y;
             }
-
+            Ellipse elipse = elipse1.Draw();
+            this.last = elipse;
+            elipse.ContextMenu = this.cont;
             if (!move)
             {
                 canvas.Children.RemoveAt(canvas.Children.Count - 1);
                 canvas.Children.Add(elipse);
                 this.arr.Add(elipse);
+                this.arrSerz[arr.Count-1]=elipse1;
                 MenuItem item1 = new MenuItem();
                 int h = shapesMenu.Items.Count;
                 item1.Header = "Elipse" + (shapesMenu.Items.Count + 1).ToString();
@@ -301,10 +295,16 @@ namespace WpfApp1
             else
                 if (canvas.Children.Count > 2 && !this.isMove)
             {
+                //// if (!ifFirst)
                 {
                     canvas.Children.RemoveAt(canvas.Children.Count - 1);
                     canvas.Children.Add(elipse);
                 }
+                ////else
+                ////{
+                ////    canvas.Children.Add(elipse);
+                ////    ifFirst = false;
+                ////}
             }
             else
             {
