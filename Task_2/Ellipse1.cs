@@ -1,52 +1,62 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using Microsoft.Win32;
-
+//-----------------------------------------------------------------------
+// <copyright file="Ellipse1.cs" company="LNU">
+//     Copyright (c) Top Coders. All rights reserved.
+// </copyright>
+// <author>Burdein Irina</author>
+// <author>Butry Oleg</author>
+// <author>Ivanova Antonina</author>
+// <author>Koltun Roman</author>
+// <date> " + DateTime.Now + @"</date>
+//-----------------------------------------------------------------------
 namespace WpfApp1
 {
+    using System;
+    using System.Windows.Controls;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+
     [Serializable]
    public class Ellipse1
     {
         public Ellipse1()
         {
-            Name = "";
+            this.Name = string.Empty;
         }
+
         public Ellipse1(string s)
         {
-            Name = s;
+            this.Name = s;
         }
+
         public double Height { get; set; }
+
         public double Width { get; set; }
+
         public string Name { get; set; }
+
         public double LeftProperty { get; set; }
+
         public double TopProperty { get; set; }
-        public string br { get; set; }
+
         public byte Red { get; set; }
+
         public byte Green { get; set; }
+
         public byte Blue { get; set; }
+
         public byte A { get; set; }
+
         public Ellipse Draw()
         {
             Ellipse elipse = new Ellipse();
             elipse.Stroke = Brushes.Black;
             elipse.StrokeThickness = 5;
-            elipse.SetValue(Canvas.LeftProperty, LeftProperty);
-            elipse.SetValue(Canvas.TopProperty, TopProperty);
-            elipse.Height = Height;
-            elipse.Width = Width;
-            elipse.Fill = new SolidColorBrush(Color.FromArgb(A, Red, Green, Blue));
+            elipse.SetValue(Canvas.LeftProperty, this.LeftProperty);
+            elipse.SetValue(Canvas.TopProperty, this.TopProperty);
+            elipse.Height = this.Height;
+            elipse.Width = this.Width;
+            elipse.Fill = new SolidColorBrush(Color.FromArgb(this.A, this.Red, this.Green, this.Blue));
             return elipse;
         }
-
-
     }
 }

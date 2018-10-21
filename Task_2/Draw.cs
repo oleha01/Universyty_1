@@ -1,35 +1,83 @@
-using System.Collections.Generic;
-using System.IO;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Shapes;
-using Microsoft.Win32;
-using Task_2;
-using WpfApp1;
-using System.Xml.Serialization;
-using System;
-using System.Windows.Data;
-
+//-----------------------------------------------------------------------
+// <copyright file="Draw.cs" company="LNU">
+//     Copyright (c) Top Coders. All rights reserved.
+// </copyright>
+// <author>Burdein Irina</author>
+// <author>Butry Oleg</author>
+// <author>Ivanova Antonina</author>
+// <author>Koltun Roman</author>
+// <date> " + DateTime.Now + @"</date>
+//-----------------------------------------------------------------------
 namespace WpfApp1
 {
-    class Draw
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Data;
+    using System.Windows.Input;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+    using System.Xml.Serialization;
+    using Microsoft.Win32;
+
+    public class Draw
     {
-        Canvas canvas;
-        Ellipse1 Null;
-        MenuItem shapesMenu;
-        MainWindow window;
-        public string path = "*.*";
+        /// <summary>
+        /// Points of current ellipse.
+        /// </summary>
+        private Point p1, p2;
+        private Canvas canvas;
+        private Ellipse1 empty;
+        private MenuItem shapesMenu;
+        private MainWindow window;
+        private string path = "*.*";
+
+        private XmlSerializer xm = new XmlSerializer(typeof(Ellipse1[]));
+
+        /// <summary>
+        /// Stores context menu.
+        /// </summary>
+        private ContextMenu cont = new ContextMenu();
+
+        /// <summary>
+        /// Last ellipse.
+        /// </summary>
+        private Ellipse last;
+
+        /// <summary>
+        /// Current ellipse.
+        /// </summary>
+        private Ellipse current;
+
+        /// <summary>
+        /// List that stores array of ellipses.
+        /// </summary>
+        private List<Ellipse> arr;
+
+        private Ellipse1[] arrSerz;
+
+        /// <summary>
+        /// Boolean value which indicates whether ellipse is in move.
+        /// </summary>
+        private bool isMove;
+
+        /// <summary>
+        /// Boolean value which indicates whether ellipse is movable.
+        /// </summary>
+        private bool remap;
+
+        private System.Windows.Forms.ColorDialog colorD;
+
         public Draw(Canvas coco, MenuItem f, MainWindow mm)
         {
-            canvas = coco;
-            shapesMenu = f;
-            window = mm;
-            Null = new Ellipse1("NULL");
-            arrSerz = new Ellipse1[25];
+            this.canvas = coco;
+            this.shapesMenu = f;
+            this.window = mm;
+            this.empty = new Ellipse1("NULL");
+            this.arrSerz = new Ellipse1[25];
             this.remap = false;
-            colorD = new System.Windows.Forms.ColorDialog();
+            this.colorD = new System.Windows.Forms.ColorDialog();
             MenuItem m1 = new MenuItem();
             MenuItem m2 = new MenuItem();
             m1.Header = "Color";
@@ -43,58 +91,18 @@ namespace WpfApp1
             this.cont.Items.Add(m2);
             for (int i = 0; i < 25; i++)
             {
-                arrSerz[i] = Null;
+                this.arrSerz[i] = this.empty;
             }
+
             Binding binding = new Binding();
-
-            binding.ElementName = path;
-            window.SetBinding(MainWindow.TitleProperty, path);
+            binding.ElementName = this.path;
+            this.window.SetBinding(MainWindow.TitleProperty, this.path);
         }
-        /// <summary>
-        /// Dictionary that stores name and value of coloures.
-        /// </summary>
-        public Dictionary<string, SolidColorBrush> forColor;
 
-        XmlSerializer xm = new XmlSerializer(typeof(Ellipse1[]));
-
-        /// <summary>
-        /// Stores context menu.
-        /// </summary>
-        public ContextMenu cont = new ContextMenu();
-
-        /// <summary>
-        /// Last ellipse.
-        /// </summary>
-        public Ellipse last;
-
-        /// <summary>
-        /// Current ellipse.
-        /// </summary>
-        public Ellipse current;
-
-        /// <summary>
-        /// List that stores array of ellipses.
-        /// </summary>
-        public List<Ellipse> arr;
-
-        public Ellipse1[] arrSerz;
-
-        /// <summary>
-        /// Points of current ellipse.
-        /// </summary>
-        public Point p1, p2;
-
-        /// <summary>
-        /// Boolean value which indicates whether ellipse is in move.
-        /// </summary>
-        public bool isMove;
-
-        /// <summary>
-        /// Boolean value which indicates whether ellipse is movable.
-        /// </summary>
-        public bool remap;
-
-        System.Windows.Forms.ColorDialog colorD;
+        public void SetP1(Point p)
+        {
+            this.p1 = p;
+        }
 
         public void ColorFilling(MenuItem sender, object c)
         {
@@ -103,102 +111,108 @@ namespace WpfApp1
               this.last.Fill = a;
               arrSerz[arr.Count - 1].br = sender.Header.ToString();*/
 
-            if (colorD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (this.colorD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                var el = current;
+                var el = this.current;
 
-                var color1 = colorD.Color;
+                var color1 = this.colorD.Color;
                 System.Windows.Media.Color newColor = System.Windows.Media.Color.FromArgb(color1.A, color1.R, color1.G, color1.B);
                 el.Fill = new SolidColorBrush(newColor);
-                int ind = arr.IndexOf(current);
-                arrSerz[ind].Red = color1.R;
-                arrSerz[ind].Blue = color1.B;
-                arrSerz[ind].Green = color1.G;
-                arrSerz[ind].A = color1.A;
-
-
+                int ind = this.arr.IndexOf(this.current);
+                this.arrSerz[ind].Red = color1.R;
+                this.arrSerz[ind].Blue = color1.B;
+                this.arrSerz[ind].Green = color1.G;
+                this.arrSerz[ind].A = color1.A;
             }
-
-
         }
+
         /// <summary>
         /// Function that helps to save current canvas to the text file.
         /// </summary>
-        /// <param name="path">The path to the file.</param>
         public void SaveFIle()
         {
-            if (path == "*.*")
+            if (this.path == "*.*")
             {
                 SaveFileDialog save = new SaveFileDialog();
                 if (save.ShowDialog() == true)
                 {
-                    path = save.FileName;
+                    this.path = save.FileName;
                 }
             }
-            using (StreamWriter fs = new StreamWriter(path))
+
+            using (StreamWriter fs = new StreamWriter(this.path))
             {
-                xm.Serialize(fs, arrSerz);
+                this.xm.Serialize(fs, this.arrSerz);
             }
         }
+
         /// <summary>
         /// Function that helps to open text file with canvas.
         /// </summary>
         /// <param name="path">The path to the file.</param>
         public void ReadFromFile(string path)
         {
-            arr = new List<Ellipse>();
-            shapesMenu.Items.Clear();
-            canvas.Children.RemoveRange(1, canvas.Children.Count);
-            last = null;
-            current = null;
+            this.arr = new List<Ellipse>();
+            this.shapesMenu.Items.Clear();
+            this.canvas.Children.RemoveRange(1, this.canvas.Children.Count);
+            this.last = null;
+            this.current = null;
             this.path = path;
 
             using (StreamReader fs = new StreamReader(path))
             {
-                arrSerz = (Ellipse1[])xm.Deserialize(fs);
+                this.arrSerz = (Ellipse1[])this.xm.Deserialize(fs);
             }
-            foreach (var el in arrSerz)
+
+            foreach (var el in this.arrSerz)
             {
-                if (el.Name != Null.Name)
-                    DrawOnCanvas(el);
+                if (el.Name != this.empty.Name)
+                {
+                    this.DrawOnCanvas(el);
+                }
             }
         }
 
         public void DrawOnCanvas(Ellipse1 el)
         {
             Ellipse elipse = el.Draw();
-            arr.Add(elipse);
+            this.arr.Add(elipse);
             MenuItem item1 = new MenuItem();
-            elipse.MouseRightButtonDown += Elipse_MouseRightButtonDown;
-            int h = arr.Count;
-            item1.Header = "Elipse" + (shapesMenu.Items.Count + 1).ToString();
+            elipse.MouseRightButtonDown += this.Elipse_MouseRightButtonDown;
+            int h = this.arr.Count;
+            item1.Header = "Elipse" + (this.shapesMenu.Items.Count + 1).ToString();
             item1.Click += (object c, RoutedEventArgs e) => this.RemapShapes(h - 1);
             elipse.Name = "E" + h.ToString();
-            shapesMenu.Items.Add(item1);
-            elipse.MouseRightButtonDown += Elipse_MouseRightButtonDown;
-            last = elipse;
-            canvas.Children.Add(elipse);
-            current = last;
+            this.shapesMenu.Items.Add(item1);
+            elipse.MouseRightButtonDown += this.Elipse_MouseRightButtonDown;
+            this.last = elipse;
+            this.canvas.Children.Add(elipse);
+            this.current = this.last;
             elipse.ContextMenu = this.cont;
         }
 
         public void New()
         {
-            canvas.Children.RemoveRange(1, canvas.Children.Count - 1);
-            shapesMenu.Items.Add("Elipse" + (shapesMenu.Items.Count + 1).ToString());
-            arr.Clear();
+            this.canvas.Children.RemoveRange(1, this.canvas.Children.Count - 1);
+            this.shapesMenu.Items.Add("Elipse" + (this.shapesMenu.Items.Count + 1).ToString());
+            this.arr.Clear();
             for (int i = 0; i < 25; i++)
             {
-                arrSerz[i] = Null;
+                this.arrSerz[i] = this.empty;
             }
-            shapesMenu.Items.Clear();
+
+            this.shapesMenu.Items.Clear();
         }
+
         public void Read()
         {
             OpenFileDialog of = new OpenFileDialog();
             if (of.ShowDialog() == true)
-                ReadFromFile(of.FileName);
+            {
+                this.ReadFromFile(of.FileName);
+            }
         }
+
         /// <summary>
         /// Allows to moveexisting ellipse.
         /// </summary>
@@ -208,6 +222,7 @@ namespace WpfApp1
             this.remap = true;
             this.current = this.arr[k];
         }
+
         /// <summary>
         /// Function that implement drawing of new ellipse on the canvas.
         /// </summary>
@@ -216,13 +231,10 @@ namespace WpfApp1
         /// <param name="move">Boolean value, that indicates whether ellipse is movable.</param>
         public void DrawElipse(Point start, Point stop, bool move)
         {
-
             Ellipse1 elipse1 = new Ellipse1();
 
             elipse1.LeftProperty = start.X;
             elipse1.TopProperty = start.Y;
-
-
             if (stop.X - start.X >= 0)
             {
                 elipse1.Width = stop.X - start.X;
@@ -242,33 +254,33 @@ namespace WpfApp1
                 elipse1.Height = start.Y - stop.Y;
                 elipse1.TopProperty = stop.Y;
             }
+
             Ellipse elipse = elipse1.Draw();
             this.last = elipse;
-            current = last;
+            this.current = this.last;
             elipse.ContextMenu = this.cont;
             if (!move)
             {
-                canvas.Children.RemoveAt(canvas.Children.Count - 1);
-                canvas.Children.Add(elipse);
+                this.canvas.Children.RemoveAt(this.canvas.Children.Count - 1);
+                this.canvas.Children.Add(elipse);
                 this.arr.Add(elipse);
-                this.arrSerz[arr.Count - 1] = elipse1;
+                this.arrSerz[this.arr.Count - 1] = elipse1;
                 MenuItem item1 = new MenuItem();
-                elipse.MouseRightButtonDown += Elipse_MouseRightButtonDown;
-                int h = shapesMenu.Items.Count;
-                item1.Header = "Elipse" + (shapesMenu.Items.Count + 1).ToString();
+                elipse.MouseRightButtonDown += this.Elipse_MouseRightButtonDown;
+                int h = this.shapesMenu.Items.Count;
+                item1.Header = "Elipse" + (this.shapesMenu.Items.Count + 1).ToString();
                 item1.Click += (object c, RoutedEventArgs e) => this.RemapShapes(h);
                 elipse.Name = "E" + h.ToString();
-                shapesMenu.Items.Add(item1);
+                this.shapesMenu.Items.Add(item1);
                 elipse.Fill = new SolidColorBrush(Colors.White);
-
             }
             else
-                if (canvas.Children.Count > 2 && !this.isMove)
+                if (this.canvas.Children.Count > 2 && !this.isMove)
             {
                 //// if (!ifFirst)
                 {
-                    canvas.Children.RemoveAt(canvas.Children.Count - 1);
-                    canvas.Children.Add(elipse);
+                    this.canvas.Children.RemoveAt(this.canvas.Children.Count - 1);
+                    this.canvas.Children.Add(elipse);
                 }
                 ////else
                 ////{
@@ -278,59 +290,60 @@ namespace WpfApp1
             }
             else
             {
-                canvas.Children.Add(elipse);
+                this.canvas.Children.Add(elipse);
                 this.isMove = false;
             }
         }
 
         public void Elipse_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            current = sender as Ellipse;
+            this.current = sender as Ellipse;
         }
+
         public void MousePress()
         {
-            if (remap == false)
+            if (this.remap == false)
             {
-                p2 = Mouse.GetPosition(this.canvas);
-                DrawElipse(p1, p2, false);
-                isMove = true;
-
+                this.p2 = Mouse.GetPosition(this.canvas);
+                this.DrawElipse(this.p1, this.p2, false);
+                this.isMove = true;
             }
             else
             {
-                remap = false;
-
+                this.remap = false;
             }
         }
+
         public void MousePressed()
         {
-            Point p = Mouse.GetPosition(canvas);
-            if (remap == false)
+            Point p = Mouse.GetPosition(this.canvas);
+            if (this.remap == false)
             {
-                DrawElipse(p1, p, true);
+                this.DrawElipse(this.p1, p, true);
             }
             else
             {
-                double left = double.Parse(current.GetValue(Canvas.LeftProperty).ToString()) + p.X - p1.X;
-                double top = double.Parse(current.GetValue(Canvas.TopProperty).ToString()) + p.Y - p1.Y;
-                current.SetValue(Canvas.LeftProperty, left);
-                current.SetValue(Canvas.TopProperty, top);
-                arrSerz[arr.IndexOf(current)].LeftProperty = left;
-                arrSerz[arr.IndexOf(current)].TopProperty = top;
-                p1 = p;
+                double left = double.Parse(this.current.GetValue(Canvas.LeftProperty).ToString()) + p.X - this.p1.X;
+                double top = double.Parse(this.current.GetValue(Canvas.TopProperty).ToString()) + p.Y - this.p1.Y;
+                this.current.SetValue(Canvas.LeftProperty, left);
+                this.current.SetValue(Canvas.TopProperty, top);
+                this.arrSerz[this.arr.IndexOf(this.current)].LeftProperty = left;
+                this.arrSerz[this.arr.IndexOf(this.current)].TopProperty = top;
+                this.p1 = p;
             }
         }
+
         public void SaveAs()
         {
             SaveFileDialog save = new SaveFileDialog();
             if (save.ShowDialog() == true)
             {
-                path = save.FileName;
+                this.path = save.FileName;
             }
 
-            using (StreamWriter fs = new StreamWriter(path))
+            using (StreamWriter fs = new StreamWriter(this.path))
             {
-                xm.Serialize(fs, arrSerz);
+                this.xm.Serialize(fs, this.arrSerz);
             }
         }
     }
