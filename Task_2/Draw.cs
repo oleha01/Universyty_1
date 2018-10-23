@@ -26,49 +26,53 @@ namespace WpfApp1
         /// <summary>
         /// Points of current ellipse.
         /// </summary>
-        private Point p1, p2;
-        private Canvas canvas;
-        private Ellipse1 empty;
-        private MenuItem shapesMenu;
-        private MainWindow window;
-        private string path = "*.*";
+        public Point p1, p2;
+        public Canvas canvas;
+        public Ellipse1 empty;
+        public MenuItem shapesMenu;
+        public MainWindow window;
+        public string path = "*.*";
 
-        private XmlSerializer xm = new XmlSerializer(typeof(Ellipse1[]));
+        public XmlSerializer xm = new XmlSerializer(typeof(Ellipse1[]));
 
         /// <summary>
         /// Stores context menu.
         /// </summary>
-        private ContextMenu cont = new ContextMenu();
+        public ContextMenu cont = new ContextMenu();
 
         /// <summary>
         /// Last ellipse.
         /// </summary>
-        private Ellipse last;
+        public Ellipse last;
 
         /// <summary>
         /// Current ellipse.
         /// </summary>
-        private Ellipse current;
+        public Ellipse current;
 
         /// <summary>
         /// List that stores array of ellipses.
         /// </summary>
-        private List<Ellipse> arr;
+        public List<Ellipse> arr;
 
-        private Ellipse1[] arrSerz;
+        public Ellipse1[] arrSerz;
 
         /// <summary>
         /// Boolean value which indicates whether ellipse is in move.
         /// </summary>
-        private bool isMove;
+        public bool isMove;
 
         /// <summary>
         /// Boolean value which indicates whether ellipse is movable.
         /// </summary>
-        private bool remap;
+        public bool remap;
 
-        private System.Windows.Forms.ColorDialog colorD;
-
+        public System.Windows.Forms.ColorDialog colorD;
+        public Draw()
+        {
+            this.p1.X = 0;
+            this.p1.Y = 0;
+        }
         public Draw(Canvas coco, MenuItem f, MainWindow mm)
         {
             this.canvas = coco;
@@ -103,7 +107,7 @@ namespace WpfApp1
         {
             this.p1 = p;
         }
-
+       
         public void ColorFilling(MenuItem sender, object c)
         {
             // MessageBox.Show(sender.Header.ToString());
