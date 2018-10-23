@@ -4,7 +4,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Task_2;
-
+using WpfApp1;
 namespace UnitTestTask2
 {
     [TestClass]
@@ -13,15 +13,18 @@ namespace UnitTestTask2
         [TestMethod]
         public void DrawTest()
         {
-            Ellipse elipse = new Ellipse();
-            elipse.Stroke = Brushes.Black;
-            elipse.StrokeThickness = 5;
-            elipse.SetValue(Canvas.LeftProperty, this.LeftProperty);
-            elipse.SetValue(Canvas.TopProperty, this.TopProperty);
-            elipse.Height = this.Height;
-            elipse.Width = this.Width;
-            elipse.Fill = new SolidColorBrush(Color.FromArgb(this.A, this.Red, this.Green, this.Blue));
-            Assert.Fail();
+            Ellipse1 elipse = new Ellipse1();
+            
+            Ellipse el = elipse.Draw();
+            
+            Assert.IsTrue(el.Stroke==Brushes.Black&&el.StrokeThickness==5);
         }
+        public void SetNameTest()
+        {
+            string name = "actual";
+            Ellipse1 el = new Ellipse1(name);
+            Assert.IsTrue(el.Name == "actual");
+        }
+
     }
 }
