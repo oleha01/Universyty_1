@@ -21,9 +21,6 @@ namespace WpfApp1.Tests
     [TestClass()]
     public class UnitTest1
     {
-
-
-
         [TestMethod()]
         public void SetP1Test()
         {
@@ -35,17 +32,17 @@ namespace WpfApp1.Tests
             Assert.IsTrue(r.p1.X == 0 && r.p1.Y == 10);
         }
         //Треба пофіксити.Або видаліть.
-        [TestMethod()]
-        public void MousePressedTest()
-        {
-            Draw a = new Draw();
-            a.remap = true;
-            a.MousePressed();
-            Point p = Mouse.GetPosition(a.canvas);
-            double left = double.Parse(a.current.GetValue(Canvas.LeftProperty).ToString()) + p.X - a.p1.X;
+        //[TestMethod()]
+        //public void MousePressedTest()
+        //{
+        //    Draw a = new Draw();
+        //    a.remap = true;
+        //    a.MousePressed();
+        //    Point p = Mouse.GetPosition(a.canvas);
+        //    double left = double.Parse(a.current.GetValue(Canvas.LeftProperty).ToString()) + p.X - a.p1.X;
 
-            Assert.IsTrue(a.arrSerz[a.arr.IndexOf(a.current)].LeftProperty == left && a.p1 == p);
-        }
+        //    Assert.IsTrue(a.arrSerz[a.arr.IndexOf(a.current)].LeftProperty == left && a.p1 == p);
+        //}
 
         [TestMethod()]
         public void MousePressTest()
@@ -81,7 +78,7 @@ namespace WpfApp1.Tests
         {
             Draw a = new Draw();
             a.ReadFromFile("File.txt");
-            Assert.IsTrue(a.path=="File.txt"&&a.current==null&&a.last==null);
+            Assert.IsTrue(a.path == "File.txt" && a.current == null && a.last == null);
         }
     }
 }
@@ -97,8 +94,8 @@ namespace UnitTestTask2
             Ellipse1 elipse = new Ellipse1();
             
             Ellipse el = elipse.Draw();
-            
-            Assert.IsTrue(el.Stroke==Brushes.Black&&el.StrokeThickness==5);
+
+            Assert.IsTrue(el.Stroke == Brushes.Black && el.StrokeThickness == 5);
         }
         public void SetNameTest()
         {
@@ -121,10 +118,10 @@ namespace UnitTestTask2
             m.Width = 100;
             MainWindow w = new MainWindow();
             w.Width = 100;
-            Draw a = new Draw(c,m,w);
-            
+            Draw a = new Draw(c, m, w);
 
-            Assert.IsTrue(a.canvas.Width==100&&a.shapesMenu.Width==100&&a.window.Width==100);
+
+            Assert.IsTrue(a.canvas.Width == 100 && a.shapesMenu.Width == 100 && a.window.Width == 100);
 
         }
         public void DrawElipseTest()
@@ -133,15 +130,15 @@ namespace UnitTestTask2
            
             Draw a = new Draw();
             a.New();
-            Point p1 = new Point() ;
+            Point p1 = new Point();
             p1.X = 30;
             p1.Y = 10;
-           
-            Point p= new Point();
+
+            Point p = new Point();
             p.X = 100;
             p.Y = 45;
             a.DrawElipse(p1, p, false);
-            Assert.IsTrue(a.last.Stroke== Brushes.Black&&a.last.Width==70&&a.last.Height==35);
+            Assert.IsTrue(a.last.Stroke == Brushes.Black && a.last.Width == 70 && a.last.Height == 35);
         }
 
     }
