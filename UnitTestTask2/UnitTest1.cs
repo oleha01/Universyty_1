@@ -125,10 +125,12 @@ namespace UnitTestTask2
         [TestMethod]
         public void NewTest()
         {
-            Draw d = new Draw();
+            Canvas cn = new Canvas();
+            MenuItem mn = new MenuItem();
+            MainWindow mm = new MainWindow();
+            Draw d = new Draw(cn,mn,mm);
             d.New();
-
-            d.arrSerz[0] = d.empty;
+           
             Assert.IsTrue(d.arrSerz[0] == d.empty);
 
         }
