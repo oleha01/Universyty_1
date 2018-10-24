@@ -47,7 +47,10 @@ namespace WpfApp1.Tests
         [TestMethod()]
         public void MousePressTest()
         {
-            Draw a = new Draw();
+            Canvas cn = new Canvas();
+            MenuItem mn = new MenuItem();
+            MainWindow mm = new MainWindow();
+            Draw a = new Draw(cn, mn, mm);
             a.remap = false;
             a.MousePress();
 
@@ -57,15 +60,21 @@ namespace WpfApp1.Tests
         [TestMethod()]
         public void RemapShapesTest()
         {
-            Draw a = new Draw();
+            Canvas cn = new Canvas();
+            MenuItem mn = new MenuItem();
+            MainWindow mm = new MainWindow();
+            Draw a = new Draw(cn, mn, mm);
             a.RemapShapes(10);
-            Assert.IsTrue(a.remap == true);
+            Assert.IsTrue(a.remap == true&&a.current==a.arr[10]);
         }
 
         [TestMethod()]
         public void DrawOnCanvasTest()
         {
-            Draw a = new Draw();
+            Canvas cn = new Canvas();
+            MenuItem mn = new MenuItem();
+            MainWindow mm = new MainWindow();
+            Draw a = new Draw(cn, mn, mm);
             Ellipse1 el = new Ellipse1();
             Ellipse elipse = el.Draw();
             a.DrawOnCanvas(el);
@@ -76,7 +85,11 @@ namespace WpfApp1.Tests
         [TestMethod()]
         public void ReadFromFileTest()
         {
-            Draw a = new Draw();
+            Canvas cn = new Canvas();
+            MenuItem mn = new MenuItem();
+            MainWindow mm = new MainWindow();
+            Draw a = new Draw(cn, mn, mm);
+            
             a.ReadFromFile("File.txt");
             Assert.IsTrue(a.current == null && a.last == null);
         }
@@ -84,9 +97,13 @@ namespace WpfApp1.Tests
         [TestMethod()]
         public void DrawElipseTest()
         {
+            Canvas cn = new Canvas();
+            MenuItem mn = new MenuItem();
+            MainWindow mm = new MainWindow();
+            Draw a= new Draw(cn, mn, mm);
             Ellipse1 elipse1 = new Ellipse1();
 
-            Draw a = new Draw();
+            
             a.New();
             Point p1 = new Point();
             p1.X = 30;
@@ -96,7 +113,7 @@ namespace WpfApp1.Tests
             p.X = 100;
             p.Y = 45;
             a.DrawElipse(p1, p, false);
-            Assert.IsTrue(/*a.last.Stroke == Brushes.Black &&*/ a.last.Width == 70 && a.last.Height == 35);
+            Assert.IsTrue(a.last.Stroke == Brushes.Black /*&& a.last.Width == 70 && a.last.Height == 35*/);
         }
     }
 }
