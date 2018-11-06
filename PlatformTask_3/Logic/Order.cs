@@ -8,6 +8,7 @@ namespace Logic
 {
     public enum CarClass
     { Standard,
+        Econom,
         Premium,
         Elite,
         Universal,
