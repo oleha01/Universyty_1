@@ -10,31 +10,23 @@
 //-----------------------------------------------------------------------
 namespace WpfApp1.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Data;
-    using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Shapes;
-    using System.Xml.Serialization;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Microsoft.Win32;
-    using Task_2;
     using WpfApp1;
 
     /// <summary>
     /// Class that containts unit tests.
     /// </summary>
-    ////[TestClass()]
+    [TestClass()]
     public class UnitTest1
     {
         /// <summary>
         /// Tests whether drawing works correctly.
         /// </summary>
-        ////[TestMethod()]
+        [TestMethod()]
         public void SetP1Test()
         {
             Point a = new Point();
@@ -60,7 +52,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether drawing works correctly.
         /// </summary>
-        ////[TestMethod()]
+        [TestMethod()]
         public void MousePressTest()
         {
             Canvas cn = new Canvas();
@@ -76,7 +68,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether drawing works correctly.
         /// </summary>
-        ////[TestMethod()]
+        [TestMethod()]
         public void RemapShapesTest()
         {
             Canvas cn = new Canvas();
@@ -90,7 +82,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether drawing works correctly.
         /// </summary>
-        ////[TestMethod()]
+        [TestMethod()]
         public void DrawOnCanvasTest()
         {
             Canvas cn = new Canvas();
@@ -107,7 +99,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether reading from file works correctly.
         /// </summary>
-        ////[TestMethod()]
+        [TestMethod()]
         public void ReadFromFileTest()
         {
             Canvas cn = new Canvas();
@@ -122,7 +114,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether drawing works correctly.
         /// </summary>
-        ////[TestMethod()]
+        [TestMethod()]
         public void DrawElipseTest()
         {
             Canvas cn = new Canvas();
@@ -146,7 +138,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether drawing works correctly.
         /// </summary>
-        ////[TestMethod]
+        [TestMethod]
         public void DrawETest()
         {
             Ellipse1 elipse = new Ellipse1();
@@ -159,7 +151,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether setting a name works correctly.
         /// </summary>
-        ////[TestMethod]
+        [TestMethod]
         public void SetNameTest()
         {
             string name = "actual";
@@ -170,7 +162,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether drawing works correctly.
         /// </summary>
-        ////[TestMethod]
+        [TestMethod]
         public void NewTest()
         {
             Canvas cn = new Canvas();
@@ -185,7 +177,7 @@ namespace WpfApp1.Tests
         /// <summary>
         /// Tests whether drawing works correctly.
         /// </summary>
-        ////[TestMethod]
+        [TestMethod]
         public void DrawTest()
         {
             Canvas c = new Canvas();
