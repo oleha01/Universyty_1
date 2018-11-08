@@ -21,18 +21,44 @@ namespace WpfApp1
     using System.Xml.Serialization;
     using Microsoft.Win32;
 
+    /// <summary>
+    /// The class that draw elipses.
+    /// </summary>
     public class Draw
     {
         /// <summary>
         /// Points of current ellipse.
         /// </summary>
         public Point p1, p2;
+
+        /// <summary>
+        /// Curren canvas.
+        /// </summary>
         public Canvas canvas;
+
+        /// <summary>
+        /// Current ellipse.
+        /// </summary>
         public Ellipse1 empty;
+
+        /// <summary>
+        /// Shapes menu.
+        /// </summary>
         public MenuItem shapesMenu;
+
+        /// <summary>
+        /// Main window.
+        /// </summary>
         public MainWindow window;
+
+        /// <summary>
+        /// Path to save/read canvas.
+        /// </summary>
         public string path = "*.*";
 
+        /// <summary>
+        /// Serializer of ellipses.
+        /// </summary>
         public XmlSerializer xm = new XmlSerializer(typeof(Ellipse1[]));
 
         /// <summary>
@@ -55,6 +81,9 @@ namespace WpfApp1
         /// </summary>
         public List<Ellipse> arr;
 
+        /// <summary>
+        /// Arrey of ellipses.
+        /// </summary>
         public Ellipse1[] arrSerz;
 
         /// <summary>
@@ -67,12 +96,26 @@ namespace WpfApp1
         /// </summary>
         public bool remap;
 
+        /// <summary>
+        /// The field that contains the value of the color of the ellipse.
+        /// </summary>
         public System.Windows.Forms.ColorDialog colorD;
+
+        /// <summary>
+        ///  Initializes a new instance of the <see cref="Draw" /> class.
+        /// </summary>
         public Draw()
         {
             this.p1.X = 0;
             this.p1.Y = 0;
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Draw" /> class.
+        /// </summary>
+        /// <param name="coco">Current canvas.</param>
+        /// <param name="f">Shapes manu.</param>
+        /// <param name="mm">Current indow.</param>
         public Draw(Canvas coco, MenuItem f, MainWindow mm)
         {
             this.canvas = coco;
@@ -103,11 +146,20 @@ namespace WpfApp1
             this.window.SetBinding(MainWindow.TitleProperty, this.path);
         }
 
+        /// <summary>
+        /// Sets the coordinate for point.
+        /// </summary>
+        /// <param name="p">The point.</param>
         public void SetP1(Point p)
         {
             this.p1 = p;
         }
-       
+
+        /// <summary>
+        /// Fill the ellipse with chosen color.
+        /// </summary>
+        /// <param name="sender">Menu item of color changing.</param>
+        /// <param name="c">The value of color.</param>
         public void ColorFilling(MenuItem sender, object c)
         {
             // MessageBox.Show(sender.Header.ToString());
@@ -177,6 +229,10 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Drag ellipse on canvas.
+        /// </summary>
+        /// <param name="el">Current ellipse.</param>
         public void DrawOnCanvas(Ellipse1 el)
         {
             Ellipse elipse = el.Draw();
@@ -195,6 +251,9 @@ namespace WpfApp1
             elipse.ContextMenu = this.cont;
         }
 
+        /// <summary>
+        /// Creates new canvas.
+        /// </summary>
         public void New()
         {
             this.canvas.Children.RemoveRange(1, this.canvas.Children.Count - 1);
@@ -208,6 +267,9 @@ namespace WpfApp1
             this.shapesMenu.Items.Clear();
         }
 
+        /// <summary>
+        /// Read canvas from file.
+        /// </summary>
         public void Read()
         {
             OpenFileDialog of = new OpenFileDialog();
@@ -299,11 +361,19 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Open contect menu of ellipse.
+        /// </summary>
+        /// <param name="sender">Sender that invokes the event.</param>
+        /// <param name="e">Mouse right button down.</param>
         public void Elipse_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.current = sender as Ellipse;
         }
 
+        /// <summary>
+        /// Mouse press event that starts drawing ellipse.
+        /// </summary>
         public void MousePress()
         {
             if (this.remap == false)
@@ -318,6 +388,9 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Mouse press event that starts drawing ellipse.
+        /// </summary>
         public void MousePressed()
         {
             Point p = Mouse.GetPosition(this.canvas);
@@ -337,6 +410,9 @@ namespace WpfApp1
             }
         }
 
+        /// <summary>
+        /// Save canvas.
+        /// </summary>
         public void SaveAs()
         {
             SaveFileDialog save = new SaveFileDialog();
