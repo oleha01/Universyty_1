@@ -63,56 +63,24 @@ namespace UnitTestProject1
         {
             int id = Int32.Parse(Driver.Id.ToString());
             
-            Driver first = new Driver( name:"Hawan",  id, city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32", entrance1: "2", entrance2: "1", carClassOrder1: CarClass.Premium);
+            Driver first = new Driver( name:"Hawan",  id, surname: "Neron",  carClassOrder1: CarClass.Premium);
             if (first.carcl != CarClass.Premium)
                 Assert.Fail();
             
         }
         [TestMethod]
-        public void Test_WithoutEntrance()
+        public void Test_Drive()
         {
             int id = Int32.Parse(Driver.Id.ToString());
-            Driver first = new Driver(Name: "Hawan", city1: "Lviv", street1: "Universytetcka", house1: "1");
+            Driver first = new Driver(Name: "Hawan",id, surname: "Neron", carClassOrder1: CarClass.Premium);
             if (first.Name != "Hawan")
                 Assert.Fail();
-            if (first.Address1.City != "Lviv")
-                Assert.Fail();
-            if (first.Address1.Street != "Universytetcka")
-                Assert.Fail();
-            if (first.Address1.House != "1")
-                Assert.Fail();
-            if (first.Address1.Entrance != "")
+            if (first.SurName != "Neron")
                 Assert.Fail();
             if (first.OrderID != id + 1)
                 Assert.Fail();
 
         }
-        [TestMethod]
-        public void Designer2_Test2_WithEntrance()
-        {
-            int id = Int32.Parse(Driver.Id.ToString());
-            Driver first = new Driver(Name: "Hawan", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32", entrance1: "2", entrance2: "1");
-            if (first.Name != "Hawan")
-                Assert.Fail();
-            if (first.Address1.City != "Lviv")
-                Assert.Fail();
-            if (first.Address1.Street != "Universytetcka")
-                Assert.Fail();
-            if (first.Address1.House != "1")
-                Assert.Fail();
-            if (first.Address1.Entrance != "2")
-                Assert.Fail();
-            if (first.Address2.City != "Lviv1")
-                Assert.Fail();
-            if (first.Address2.Street != "Med.Pechery")
-                Assert.Fail();
-            if (first.Address2.House != "32")
-                Assert.Fail();
-            if (first.Address2.Entrance != "1")
-                Assert.Fail();
-            if (first.OrderID != id + 1)
-                Assert.Fail();
-
-        }
+        
     }
 }
