@@ -11,34 +11,12 @@ namespace Logic
         
         CarClass carcl { get; set; }
         
-        public string Name
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-                
-            }
-            set
-            {
-
-            }
-        }
-        public string SurName
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set { }
-        }
-        public string Id
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set { }
-        }
+        public string Name { get; set; }
+       
+        public string SurName { get; set; }
+        
+        public string Id  { get; set; }
+       
         public Driver(string n, string id, string sur, CarClass car = CarClass.Econom)
         {
             Name = n;
