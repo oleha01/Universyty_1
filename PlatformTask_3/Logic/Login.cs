@@ -9,20 +9,30 @@ namespace Logic
 {
     public static class Login
     {
-        public static string path_password { get; set; }
-        public static string path_orders { get; set; }
+        /// <summary>
+        /// List of users.
+        /// </summary>
         private static List<Client> users;
+        /// <summary>
+        /// Gets or sets path for password.
+        /// </summary>
+        public static string PathPassword { get; set; }
+
+        /// <summary>
+        /// Gets or sets path for user information.
+        /// </summary>
+        public static string PathUsers { get; set; }
         static bool ifChanged = false;
         public static List<Client> Users { get { ifChanged = true; return users; } set { users = value; } }
         public static List<Order> orders;
 
         static Login()
         {
-            path_password = "password.txt";
-            path_orders = "orders.txt";
+            PathPassword = "password.txt";
+            PathUsers = "orders.txt";
             XmlSerializer f = new XmlSerializer(typeof(List<Client>));
             XmlSerializer f1 = new XmlSerializer(typeof(List<Order>));
-            using (FileStream sr = new FileStream(path_password, FileMode.OpenOrCreate))
+            using (FileStream sr = new FileStream(PathUsers, FileMode.OpenOrCreate))
             {
                 try
                 {
@@ -33,7 +43,7 @@ namespace Logic
                     users = new List<Client>();
                 }
             }
-            using (FileStream sr = new FileStream(path_orders, FileMode.OpenOrCreate))
+            using (FileStream sr = new FileStream(PathUsers, FileMode.OpenOrCreate))
             {
                 try
                 {
@@ -50,7 +60,7 @@ namespace Logic
         public static void Seria()
         {
             XmlSerializer f = new XmlSerializer(typeof(List<Client>));
-            using (FileStream sr = new FileStream(path_password, FileMode.OpenOrCreate))
+            using (FileStream sr = new FileStream(PathPassword, FileMode.OpenOrCreate))
             {
                 f.Serialize(sr, users);
             }
@@ -58,7 +68,7 @@ namespace Logic
         public static void SeriaOrd()
         {
             XmlSerializer f1 = new XmlSerializer(typeof(List<Order>));
-            using (FileStream sr = new FileStream(path_orders, FileMode.OpenOrCreate))
+            using (FileStream sr = new FileStream(PathUsers, FileMode.OpenOrCreate))
             {
                 f1.Serialize(sr, orders);
             }
