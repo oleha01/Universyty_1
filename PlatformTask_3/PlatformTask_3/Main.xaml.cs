@@ -50,6 +50,7 @@ namespace PlatformTask_3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             Address first = new Address(client.Adress_Client.City, zvidky_adres.Text, zvidky_Dim.Text, zvidky_entra.Text);
             Address sec = null;
             List<Address> second = new List<Address>();

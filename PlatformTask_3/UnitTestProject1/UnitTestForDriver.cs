@@ -65,7 +65,7 @@ namespace UnitTestProject1
             int id = Int32.Parse(Driver.Id.ToString());
             
             Driver first = new Driver( name:"Hawan",  id, surname: "Neron",  carClassOrder1: CarClass.Premium);
-            if (first.carcl != CarClass.Premium)
+            if (first.CarCl != CarClass.Premium)
                 Assert.Fail();
             
         }
