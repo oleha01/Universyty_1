@@ -37,8 +37,8 @@ namespace PlatformTask_3
             {
                 Window1 ww = new Window1(cl);
                 this.Visibility = Visibility.Hidden;
-                ww.Show();
-                this.Close();
+                ww.ShowDialog();
+                this.Visibility = Visibility.Visible;
             }
             else
                 MessageBox.Show("Не вірний логін, або пароль");

@@ -10,6 +10,7 @@
 //-----------------------------------------------------------------------
 namespace Logic
 {
+
     using System;
 
     /// <summary>
@@ -51,6 +52,7 @@ namespace Logic
     /// <summary>
     /// Encapsulates the information about the order.
     /// </summary>
+    [Serializable]
     public class Order
     {
         /// <summary>
@@ -73,13 +75,23 @@ namespace Logic
         /// </summary>
         private Address address2;
 
+
+
         /// <summary>
         /// Initializes static members of the <see cref="Order" /> class.
         /// </summary>
+
         static Order()
         {
             ID = 0;
         }
+
+        public Order()
+        {
+            CarClassOrder = new List<CarClass>();
+        }
+        public Order(string PhoneNumber_, string city1, string street1, string house1, List<CarClass> carClassOrder1, string entrance1="", string wihes = "")
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
@@ -92,6 +104,7 @@ namespace Logic
         /// <param name="entrance1">The number enterence.</param>
         /// <param name="wihes">The additional wishes to order.</param>
         public Order(string phoneNumber, string city1, string street1, string house1, CarClass carClassOrder1 = CarClass.Standard, string entrance1 = "", string wihes = "")
+
         {
             this.OrderID = 0;
             this.Address1 = new Address(city1, street1, house1, entrance1);
@@ -99,8 +112,7 @@ namespace Logic
             this.PhoneNumber = phoneNumber;
             this.CarClassOrder = carClassOrder1;
         }
-
-        /// <summary>
+ /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
         /// </summary>
         /// <param name="phoneNumber">The user`s phone number.</param>
@@ -114,7 +126,12 @@ namespace Logic
         /// <param name="entrance1">The number enterence.</param>
         /// <param name="entrance2">The number enterence of destination.</param>
         /// <param name="wihes">The additional wishes to order.</param>
-        public Order(string phoneNumber, string city1, string street1, string house1, string city2, string street2, string house2, CarClass carClassOrder1 = CarClass.Standard, string entrance1 = "", string entrance2 = "", string wihes = "")
+        public Order(string PhoneNumber_, string city1, string street1, string house1, string city2, string street2, string house2, List<CarClass> carClassOrder1, string entrance1="",string entrance2="", string wihes = "")
+
+
+       
+
+
         {
             this.OrderID = 0;
             this.Address1 = new Address(city1, street1, house1, entrance1);
@@ -123,6 +140,18 @@ namespace Logic
             this.PhoneNumber = phoneNumber;
             this.CarClassOrder = carClassOrder1;
         }
+      
+        public Order(string name,string PhoneNumber_, Address a1,Address a2, List<CarClass> carClassOrder1, string wihes = "")
+        {
+            OrderID = 0;
+            Address1 = a1;
+            Address2 = a2;
+            Wihes = wihes;
+            ClientName = name;
+            PhoneNumber = PhoneNumber_;
+            CarClassOrder = carClassOrder1;
+        }
+       
 
         /// <summary>
         /// Gets or sets the order ID.

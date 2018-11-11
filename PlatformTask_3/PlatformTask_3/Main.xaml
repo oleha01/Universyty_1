@@ -62,7 +62,9 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Минулі замовлення" Margin="91,0,-95,-2">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Name="table" HorizontalAlignment="Left" Height="324" VerticalAlignment="Top" Width="530"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Профіль користувача" Margin="95,0,-99,-2">
                 <Grid Background="#FFE5E5E5">
