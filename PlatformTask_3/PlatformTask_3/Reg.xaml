@@ -21,7 +21,7 @@
         <TextBox x:Name="profile_phone_Entran" HorizontalAlignment="Left" Height="19" Margin="440,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="31"/>
         <Label Content="Логін" HorizontalAlignment="Left" Margin="38,161,0,0" VerticalAlignment="Top" Height="25"/>
         <TextBox x:Name="profile_phone_login" HorizontalAlignment="Left" Height="19" Margin="140,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
-        <Label Content="Паррль" HorizontalAlignment="Left" Margin="38,185,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="38,185,0,0" VerticalAlignment="Top" Height="25"/>
         <TextBox x:Name="profile_phone_Password" HorizontalAlignment="Left" Height="19" Margin="140,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
         <Label Content="Ще разок пароль" HorizontalAlignment="Left" Margin="38,209,0,0" VerticalAlignment="Top" Height="25"/>
         <TextBox x:Name="profile_phone_password2" HorizontalAlignment="Left" Height="19" Margin="140,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>

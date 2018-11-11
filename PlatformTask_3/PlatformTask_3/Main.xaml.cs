@@ -44,7 +44,7 @@ namespace PlatformTask_3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if(withoutAdress.IsChecked==false)
+            if (withoutAdress.IsChecked == false)
             {
 
             }

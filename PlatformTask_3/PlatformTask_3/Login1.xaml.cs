@@ -21,19 +21,19 @@ namespace PlatformTask_3
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         public MainWindow()
         {
             InitializeComponent();
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Client cl = new Client("Roma", "Koltun", "Rom32", "222", "+380989233113", new Address("Lviv", "Horodozka", "5", "0"));
+            ////Client cl = new Client("Roma", "Koltun", "Rom32", "222", "+380989233113", new Address("Lviv", "Horodozka", "5", "0"));
             Client cl = null;
-         cl=   Login.Users.Find(cl1 => { if (cl1.Login == login.Text) return true; return false; });
-            if (cl != null && cl.Password==password.Text)
+            cl = Login.Users.Find(cl1 => { if (cl1.Login == login.Text) return true; return false; });
+            if (cl != null && cl.Password == password.Text)
             {
                 Window1 ww = new Window1(cl);
                 this.Visibility = Visibility.Hidden;
@@ -41,7 +41,7 @@ namespace PlatformTask_3
                 this.Close();
             }
             else
-            MessageBox.Show("Не вірний логін, або пароль");
+                MessageBox.Show("Не вірний логін, або пароль");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -1,43 +1,93 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="Client.cs" company="LNU">
+//     Copyright (c) Top Coders. All rights reserved.
+// </copyright>
+// <author>Burdein Irina</author>
+// <author>Butry Oleg</author>
+// <author>Ivanova Antonina</author>
+// <author>Koltun Roman</author>
+// <date> " + DateTime.Now + @"</date>
+//-----------------------------------------------------------------------
 namespace Logic
 {
+    using System;
+
+    /// <summary>
+    /// Encapsulates the information about the user.
+    /// </summary>
     [Serializable]
     public class Client
     {
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public string Phone { get; set; }
-        public Address Adress_Client { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Client" /> class.
+        /// </summary>
         public Client()
         {
-            Name="";
-            LastName="";
-            Login="";
-            Password="";
-            Phone="";
-            Adress_Client = new Address();
-        }
-        public Client(string name,string  lastname, string login,string passwrod,string phone,Address ad )
-        {
-            Name=name;
-            LastName=lastname;
-            Login=login;
-            Password=passwrod;
-            Phone=phone;
-            Adress_Client=new Address();
-            Adress_Client = ad;
-        }
-        public override string ToString()
-        {
-            return String.Format("{0}, {1}, {2},{3},{4}",Name,LastName,Login,Password,Phone );
+            this.Name = string.Empty;
+            this.LastName = string.Empty;
+            this.Login = string.Empty;
+            this.Password = string.Empty;
+            this.Phone = string.Empty;
+            this.Adress_Client = new Address();
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Client" /> class.
+        /// </summary>
+        /// <param name="name">The first name of the user.</param>
+        /// <param name="lastname">The last name of the user.</param>
+        /// <param name="login">The login of the user account.</param>
+        /// <param name="passwrod">The password of the user account.</param>
+        /// <param name="phone">The phone number of the user.</param>
+        /// <param name="ad">The address of the user.</param>
+        public Client(string name, string lastname, string login, string passwrod, string phone, Address ad)
+        {
+            this.Name = name;
+            this.LastName = lastname;
+            this.Login = login;
+            this.Password = passwrod;
+            this.Phone = phone;
+            this.Adress_Client = new Address();
+            this.Adress_Client = ad;
+        }
+
+        /// <summary>
+        /// Gets or sets the first name of the user.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last name of the user.
+        /// </summary>
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the login of the user account.
+        /// </summary>
+        public string Login { get; set; }
+
+        /// <summary>
+        /// Gets or sets the password of the user account.
+        /// </summary>
+        public string Password { get; set; }
+
+        /// <summary>
+        /// Gets or sets the phone number of the user.
+        /// </summary>
+        public string Phone { get; set; }
+
+        /// <summary>
+        /// Gets or sets the address of the user.
+        /// </summary>
+        public Address Adress_Client { get; set; }
+
+        /// <summary>
+        /// Shows the information about the user.
+        /// </summary>
+        /// <returns>Returns the information about the user as the string.</returns>
+        public override string ToString()
+        {
+            return string.Format("{0}, {1}, {2},{3},{4}", this.Name, this.LastName, this.Login, this.Password, this.Phone);
+        }
     }
 }
