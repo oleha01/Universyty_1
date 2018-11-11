@@ -32,9 +32,9 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="78,32,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="168"/>
+        <TextBox Name="login" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="78,32,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168"/>
         <Label Content="Логін: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,32,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.95,1.19" FontFamily="Monotype Corsiva" FontSize="18" Height="30" Width="56"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="78,67,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="168"/>
+        <TextBox Name="password" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="78,67,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168"/>
         <Label Content="Пароль: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.95,1.19" FontFamily="Monotype Corsiva" FontSize="18" Height="30" Width="68"/>
         <Button Content="Вхід" Grid.Column="1" HorizontalAlignment="Left" Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="23" Click="Button_Click"/>
         <Button Content="Реєстрація" Grid.Column="1" HorizontalAlignment="Left" Margin="158,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="23" Click="Button_Click_1"/>

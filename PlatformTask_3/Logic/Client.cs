@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Logic
 {
-    class Client
+    [Serializable]
+    public class Client
     {
         public string Name { get; set; }
         public string LastName { get; set; }
@@ -14,7 +15,6 @@ namespace Logic
         public string Password { get; set; }
         public string Phone { get; set; }
         public Address Adress_Client { get; set; }
-        public List<string> list { get; set; }
         public Client()
         {
             Name="";
@@ -22,10 +22,9 @@ namespace Logic
             Login="";
             Password="";
             Phone="";
-            Adress_Client=new Address();
-            list=new List<string>();
+            Adress_Client = new Address();
         }
-        public Client(string name,string  lastname, string login,string passwrod,string phone,List<string> list )
+        public Client(string name,string  lastname, string login,string passwrod,string phone,Address ad )
         {
             Name=name;
             LastName=lastname;
@@ -33,11 +32,11 @@ namespace Logic
             Password=passwrod;
             Phone=phone;
             Adress_Client=new Address();
-            this.list=list;
+            Adress_Client = ad;
         }
         public override string ToString()
         {
-            return String.Format("{0}, {1}, {2},{3},{4},{5}",Name,LastName,Login,Password,Phone );
+            return String.Format("{0}, {1}, {2},{3},{4}",Name,LastName,Login,Password,Phone );
         }
 
     }

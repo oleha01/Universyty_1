@@ -8,7 +8,7 @@ using System.IO;
 namespace Logic
 {
     public enum CarClass
-    { Standard,
+    {   Standard,
         Econom,
         Premium,
         Elite,

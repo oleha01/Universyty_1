@@ -21,31 +21,35 @@ namespace PlatformTask_3
     /// </summary>
     public partial class MainWindow : Window
     {
-        Login log;
+        
         public MainWindow()
         {
             InitializeComponent();
-            Login log = new Login();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            //Client cl = new Client("Roma", "Koltun", "Rom32", "222", "+380989233113", new Address("Lviv", "Horodozka", "5", "0"));
+            Client cl = null;
+         cl=   Login.Users.Find(cl1 => { if (cl1.Login == login.Text) return true; return false; });
+            if (cl != null && cl.Password==password.Text)
             {
-               if( log.users[login.Text]==password.Text)
-                {
-
-                }
+                Window1 ww = new Window1(cl);
+                this.Visibility = Visibility.Hidden;
+                ww.Show();
+                this.Close();
             }
-            catch
-            {
-                MessageBox.Show("Не вірний логін, або пароль");
-            }
+            else
+            MessageBox.Show("Не вірний логін, або пароль");
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Reg f = new Reg();
+            this.Visibility = Visibility.Hidden;
+            f.ShowDialog();
+            this.Visibility = Visibility.Visible;
         }
     }
 }

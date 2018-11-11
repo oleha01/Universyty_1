@@ -1,0 +1,33 @@
+﻿<Window x:Class="PlatformTask_3.Reg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlatformTask_3"
+        mc:Ignorable="d"
+        Title="Reg" Height="450" Width="800">
+    <Grid>
+        <Label Content="Прізвище" HorizontalAlignment="Left" Margin="38,30,0,0" VerticalAlignment="Top" Height="25"/>
+        <Label Content="Імя" HorizontalAlignment="Left" Margin="38,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.5,0.154" Height="25"/>
+        <Label Content="Номер телефону" HorizontalAlignment="Left" Margin="38,80,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox Name="profile_lastname" HorizontalAlignment="Left" Height="19" Margin="140,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
+        <TextBox Name="profile_firstname" HorizontalAlignment="Left" Height="19" Margin="140,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
+        <TextBox Name="profile_phone" HorizontalAlignment="Left" Height="19" Margin="140,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
+        <Label Content="Адреса" HorizontalAlignment="Left" Margin="38,137,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="profile_phone_adres" HorizontalAlignment="Left" Height="19" Margin="140,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
+        <Label Content="Дім" HorizontalAlignment="Left" Margin="298,136,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="profile_phone_Dom" HorizontalAlignment="Left" Height="19" Margin="333,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="31"/>
+        <Label Content="Підїзд" HorizontalAlignment="Left" Margin="382,137,0,0" VerticalAlignment="Top" Height="25" RenderTransformOrigin="0.535,-0.48"/>
+        <TextBox x:Name="profile_phone_Entran" HorizontalAlignment="Left" Height="19" Margin="440,143,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="31"/>
+        <Label Content="Логін" HorizontalAlignment="Left" Margin="38,161,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="profile_phone_login" HorizontalAlignment="Left" Height="19" Margin="140,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
+        <Label Content="Паррль" HorizontalAlignment="Left" Margin="38,185,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="profile_phone_Password" HorizontalAlignment="Left" Height="19" Margin="140,191,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
+        <Label Content="Ще разок пароль" HorizontalAlignment="Left" Margin="38,209,0,0" VerticalAlignment="Top" Height="25"/>
+        <TextBox x:Name="profile_phone_password2" HorizontalAlignment="Left" Height="19" Margin="140,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="140,255,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <TextBox x:Name="profile_phone_sity" HorizontalAlignment="Left" Height="19" Margin="140,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
+        <Label Content="Місто" HorizontalAlignment="Left" Margin="49,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.079,-0.385"/>
+
+    </Grid>
+</Window>
