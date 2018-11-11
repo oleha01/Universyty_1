@@ -16,8 +16,12 @@ namespace Logic
             get
             {
                 throw new System.NotImplementedException();
+                
             }
-            set { }
+            set
+            {
+
+            }
         }
         public string SurName
         {

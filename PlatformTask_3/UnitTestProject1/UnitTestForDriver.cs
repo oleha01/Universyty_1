@@ -16,6 +16,7 @@ namespace UnitTestProject1
             //
             // TODO: добавьте здесь логику конструктора
             //
+            
         }
 
         private TestContext testContextInstance;

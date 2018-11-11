@@ -1,0 +1,43 @@
+﻿<Window x:Class="PlatformTask_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlatformTask_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="395.865" Width="399.06">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="86*"/>
+            <RowDefinition Height="175*"/>
+            <RowDefinition Height="104*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="276*"/>
+            <ColumnDefinition Width="58*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF8782E0" Offset="1"/>
+                <GradientStop Color="#FF38357A"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Label Grid.Column="1" Grid.Row="0" Content="Вхід в особистий кабінет" Margin="0,37,0,0" RenderTransformOrigin="1.294,0.386" FontFamily="Monotype Corsiva" FontSize="24" Height="39" VerticalAlignment="Top" HorizontalAlignment="Right" Width="242"/>
+        <Rectangle Grid.Column="1" Grid.Row="1">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF83FF97" Offset="0" />
+                    <GradientStop Color="White" Offset="1" />
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="78,32,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="168"/>
+        <Label Content="Логін: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,32,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.95,1.19" FontFamily="Monotype Corsiva" FontSize="18" Height="30" Width="56"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="78,67,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="168"/>
+        <Label Content="Пароль: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.95,1.19" FontFamily="Monotype Corsiva" FontSize="18" Height="30" Width="68"/>
+        <Button Content="Вхід" Grid.Column="1" HorizontalAlignment="Left" Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="23" Click="Button_Click"/>
+        <Button Content="Реєстрація" Grid.Column="1" HorizontalAlignment="Left" Margin="158,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="23" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>
