@@ -11,7 +11,7 @@ namespace UnitTestProject1
         public void Designer1_Test1_WithoutEntrance()
         {
             int id = Int32.Parse(Order.ID.ToString());
-            Order first = new Order(PhoneNumber_: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1");
+            Order first = new Order(name:"login1",PhoneNumber_: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1");
             if (first.PhoneNumber != "+380981122333")
                 Assert.Fail();
             if (first.Address1.City != "Lviv")
