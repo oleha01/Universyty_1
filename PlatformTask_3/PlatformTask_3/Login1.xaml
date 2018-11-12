@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PlatformTask_3"
         mc:Ignorable="d"
         Title="MainWindow" Height="395.865" Width="399.06">
-    <Grid>
+    <Grid Background="#FF202B36" >
         <Grid.RowDefinitions>
             <RowDefinition Height="86*"/>
             <RowDefinition Height="175*"/>
@@ -17,27 +17,31 @@
             <ColumnDefinition Width="276*"/>
             <ColumnDefinition Width="58*"/>
         </Grid.ColumnDefinitions>
-        <Grid.Background>
-            <RadialGradientBrush>
-                <GradientStop Color="#FF8782E0" Offset="1"/>
-                <GradientStop Color="#FF38357A"/>
-            </RadialGradientBrush>
-        </Grid.Background>
-        <Label Grid.Column="1" Grid.Row="0" Content="Вхід в особистий кабінет" Margin="0,37,0,0" RenderTransformOrigin="1.294,0.386" FontFamily="Monotype Corsiva" FontSize="24" Height="39" VerticalAlignment="Top" HorizontalAlignment="Right" Width="242"/>
-        <Rectangle Grid.Column="1" Grid.Row="1">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF83FF97" Offset="0" />
-                    <GradientStop Color="White" Offset="1" />
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Label Grid.Column="1" Grid.Row="0" Content="Вхід в особистий кабінет" Margin="0,37,10,0" RenderTransformOrigin="1.294,0.386"  FontSize="20" Height="39"  FontWeight="Bold" FontStyle="Italic" Background="{x:Null}" Foreground="#DAF7A6" VerticalAlignment="Top" HorizontalAlignment="Right" Width="266"/>
+        <Rectangle Grid.Column="1" Grid.Row="1" Fill="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" />
         <TextBox Name="login" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="78,32,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168"/>
-        <Label Content="Логін: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,32,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.95,1.19" FontFamily="Monotype Corsiva" FontSize="18" Height="30" Width="56"/>
+        <Label Content="Логін: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,32,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.95,1.19" FontFamily="Monotype Corsiva" FontSize="18" Foreground="#FDFEFE" Height="30" Width="56"/>
         <TextBox Name="password" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="78,67,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="168"/>
-        <Label Content="Пароль: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.95,1.19" FontFamily="Monotype Corsiva" FontSize="18" Height="30" Width="68"/>
-        <Button Content="Вхід" Grid.Column="1" HorizontalAlignment="Left" Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="23" Click="Button_Click"/>
-        <Button Content="Реєстрація" Grid.Column="1" HorizontalAlignment="Left" Margin="158,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="23" Click="Button_Click_1"/>
+        <Label Content="Пароль: " Grid.Column="1" HorizontalAlignment="Left" Margin="10,67,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.95,1.19" FontFamily="Monotype Corsiva" FontSize="18" Foreground="#FDFEFE" Height="30" Width="68"/>
+        <Button Content="Вхід" Grid.Column="1" HorizontalAlignment="Left"  Margin="10,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="23" Click="Button_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FECD9A13"/>
+                    <GradientStop Color="#FECD9A13" Offset="0.533"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Реєстрація" Grid.Column="1" HorizontalAlignment="Left" Margin="158,124,0,0" Grid.Row="1" VerticalAlignment="Top" Width="83" Height="23" Click="Button_Click_1">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FE161000" Offset="1"/>
+                    <GradientStop Color="#FEFFB900" Offset="0.106"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FECD9A13" Offset="0.329"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>
