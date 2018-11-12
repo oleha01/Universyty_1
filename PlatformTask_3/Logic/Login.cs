@@ -24,14 +24,10 @@ namespace Logic
         /// </summary>
         private static List<Client> users;
 
-        /// <summary>
-        /// Gets or sets path for user information.
-        /// </summary>
-        public static string PathUsers { get; set; }
-        static bool ifChanged = false;
-        public static List<Client> Users { get { ifChanged = true; return users; } set { users = value; } }
         public static List<Order> orders;
 
+     
+    
 
         /// <summary>
         /// Boolean that indicate if user information was changed.
@@ -78,8 +74,7 @@ namespace Logic
 
 
         }
-        }
-
+        
         /// <summary>
         /// Gets or sets path for password.
         /// </summary>

@@ -10,7 +10,7 @@
 //-----------------------------------------------------------------------
 namespace Logic
 {
-
+    using System.Collections.Generic;
     using System;
 
     /// <summary>
@@ -90,7 +90,7 @@ namespace Logic
         {
             CarClassOrder = new List<CarClass>();
         }
-        public Order(string PhoneNumber_, string city1, string street1, string house1, List<CarClass> carClassOrder1, string entrance1="", string wihes = "")
+
 
 
         /// <summary>
@@ -103,13 +103,13 @@ namespace Logic
         /// <param name="carClassOrder1">The class of the car.</param>
         /// <param name="entrance1">The number enterence.</param>
         /// <param name="wihes">The additional wishes to order.</param>
-        public Order(string phoneNumber, string city1, string street1, string house1, CarClass carClassOrder1 = CarClass.Standard, string entrance1 = "", string wihes = "")
 
+        public Order(string PhoneNumber_, string city1, string street1, string house1, List<CarClass> carClassOrder1, string entrance1 = "", string wihes = "")
         {
             this.OrderID = 0;
             this.Address1 = new Address(city1, street1, house1, entrance1);
             this.Wishes = wihes;
-            this.PhoneNumber = phoneNumber;
+            this.PhoneNumber = PhoneNumber_;
             this.CarClassOrder = carClassOrder1;
         }
  /// <summary>
@@ -137,7 +137,7 @@ namespace Logic
             this.Address1 = new Address(city1, street1, house1, entrance1);
             this.Address2 = new Address(city2, street2, house2, entrance2);
             this.Wishes = wihes;
-            this.PhoneNumber = phoneNumber;
+            this.PhoneNumber = PhoneNumber_;
             this.CarClassOrder = carClassOrder1;
         }
       
@@ -146,7 +146,7 @@ namespace Logic
             OrderID = 0;
             Address1 = a1;
             Address2 = a2;
-            Wihes = wihes;
+            Wishes = wihes;
             ClientName = name;
             PhoneNumber = PhoneNumber_;
             CarClassOrder = carClassOrder1;
@@ -209,7 +209,7 @@ namespace Logic
         /// <summary>
         /// Gets or sets the class of the car.
         /// </summary>
-        public CarClass CarClassOrder { get; set; }
+        public List<CarClass> CarClassOrder { get; set; }
 
         /// <summary>
         /// Shows the order information.
