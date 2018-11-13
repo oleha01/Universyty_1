@@ -75,6 +75,7 @@ namespace Logic
         /// </summary>
         private Address address2;
 
+        public string Time { get; set; }
 
 
         /// <summary>
@@ -104,13 +105,14 @@ namespace Logic
         /// <param name="entrance1">The number enterence.</param>
         /// <param name="wihes">The additional wishes to order.</param>
 
-        public Order(string PhoneNumber_, string city1, string street1, string house1, List<CarClass> carClassOrder1, string entrance1 = "", string wihes = "")
+        public Order(string PhoneNumber_, string city1, string street1, string house1, List<CarClass> carClassOrder1,string time, string entrance1 = "", string wihes = "")
         {
             this.OrderID = 0;
             this.Address1 = new Address(city1, street1, house1, entrance1);
             this.Wishes = wihes;
             this.PhoneNumber = PhoneNumber_;
             this.CarClassOrder = carClassOrder1;
+            Time = time;
         }
  /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
@@ -127,11 +129,6 @@ namespace Logic
         /// <param name="entrance2">The number enterence of destination.</param>
         /// <param name="wihes">The additional wishes to order.</param>
         public Order(string PhoneNumber_, string city1, string street1, string house1, string city2, string street2, string house2, List<CarClass> carClassOrder1, string entrance1="",string entrance2="", string wihes = "")
-
-
-       
-
-
         {
             this.OrderID = 0;
             this.Address1 = new Address(city1, street1, house1, entrance1);
@@ -141,7 +138,7 @@ namespace Logic
             this.CarClassOrder = carClassOrder1;
         }
       
-        public Order(string name,string PhoneNumber_, Address a1,Address a2, List<CarClass> carClassOrder1, string wihes = "")
+        public Order(string name,string PhoneNumber_, Address a1,Address a2, List<CarClass> carClassOrder1,string time, string wihes)
         {
             OrderID = 0;
             Address1 = a1;
@@ -150,6 +147,7 @@ namespace Logic
             ClientName = name;
             PhoneNumber = PhoneNumber_;
             CarClassOrder = carClassOrder1;
+            Time = time;
         }
        
 
