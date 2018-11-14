@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="Window1" Height="439.338" Width="543">
     <Grid>
-        <TabControl Name="tabcontroler" HorizontalAlignment="Left" Height="475" Margin="0,40,0,0" VerticalAlignment="Top" Width="546">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="17*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <TabControl Name="tabcontroler" HorizontalAlignment="Left" Height="475" Margin="0,40,-11,-107" VerticalAlignment="Top" Width="546" Grid.RowSpan="2">
             <TabItem Header="Замовлення" Margin="89,0,-93,-2">
-                <Grid Background="#FF202B36">
+                <Grid Name="gridik" Background="#FF202B36">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="273*"/>
                         <ColumnDefinition Width="38*"/>
@@ -19,7 +23,8 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="107*"/>
-                        <RowDefinition Height="340*"/>
+                        <RowDefinition Height="112*"/>
+                        <RowDefinition Height="228*"/>
                     </Grid.RowDefinitions>
                     <Rectangle StrokeDashArray="4 2" Stroke="Black" Grid.Row="0" Grid.ColumnSpan="5" />
                     <Label Content="Звідки їхати" HorizontalAlignment="Left" Margin="30,10,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="{x:Null}" Foreground="#DAF7A6"/>
@@ -32,13 +37,7 @@
                     <Label Content="Примітка:" HorizontalAlignment="Left" Margin="30,77,0,0" VerticalAlignment="Top" Foreground="#FCF3CF"/>
                     <TextBox Name="Prymitka" HorizontalAlignment="Left" Height="19" Margin="95,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Grid.ColumnSpan="5"/>
                     <Label Content="Куди їхати" HorizontalAlignment="Left" Margin="30,1,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="{x:Null}" Foreground="#DAF7A6" Grid.Row="1"/>
-                    <Label Content="Адрес:" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="#FCF3CF"/>
-                    <TextBox Name="kuda_adres" HorizontalAlignment="Left" Height="18" Margin="95,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Grid.ColumnSpan="2"/>
-                    <Label Content="Дім:" HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="#FCF3CF" Grid.Column="1" Grid.ColumnSpan="4"/>
-                    <TextBox Name="kuda_dim" HorizontalAlignment="Left" Height="18" Margin="11,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Grid.Column="4"/>
-                    <Label Content="Підїзд" HorizontalAlignment="Left" Margin="89,30,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="#FCF3CF" Grid.Column="4"/>
-                    <TextBox Name="kuda_entra" HorizontalAlignment="Left" Height="18" Margin="137,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Grid.Column="4"/>
-                    <Button Content="Добавити" HorizontalAlignment="Left" Margin="44,61,0,0" VerticalAlignment="Top" Width="75" FontStyle="Italic" Grid.Row="1">
+                    <Button Name="addbuttom" Content="Добавити" HorizontalAlignment="Left" Margin="44,61,0,0" VerticalAlignment="Top" Width="75" FontStyle="Italic" Grid.Row="1" Click="addbuttom_Click">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <GradientStop Color="#FFC1C921" Offset="1"/>
@@ -46,18 +45,18 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
-                    <Label Content="Коли їхати" HorizontalAlignment="Left" Margin="30,86,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="{x:Null}" Foreground="#DAF7A6" Grid.Row="1"/>
-                    <RadioButton Name="b_check_now" Content="Зараз" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="66,120,0,0" VerticalAlignment="Top" IsChecked="True" Grid.Row="1"/>
-                    <RadioButton Name="b_check_today" Content="Сьогодні" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="193,120,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-                    <RadioButton Name="b_check_after" Content="Попереднє замовлення" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="6,120,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="3"/>
-                    <CheckBox Name="check_universal" Content="Універсал" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="66,140,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-                    <CheckBox Name="check_microbus" Content="Мікроавтобус" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="156,140,0,0" VerticalAlignment="Top" Grid.Row="1"/>
-                    <CheckBox Name="check_standart" Content="Стандарт" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="2,140,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"/>
-                    <CheckBox Name="check_premium" Content="Преміум" HorizontalAlignment="Left " Foreground="#FCF3CF" Margin="34,140,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="4"/>
-                    <CheckBox Name="check_elite" Content="Еліт" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="127,140,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.Column="4"/>
-                    <CheckBox Name="check_refre" Content="Кондеціонер" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="66,172,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                    <Label Content="Коли їхати" HorizontalAlignment="Left" Margin="30,86,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="{x:Null}" Foreground="#DAF7A6" Grid.Row="1" Grid.RowSpan="2"/>
+                    <RadioButton  Name="b_check_now" Content="Зараз" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="66,10,0,0" VerticalAlignment="Top" IsChecked="True" Grid.Row="2"/>
+                    <RadioButton Name="b_check_today" Content="Сьогодні" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="184,10,0,0" VerticalAlignment="Top" Grid.Row="2"/>
+                    <RadioButton  Name="b_check_after" Content="Попереднє замовлення" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="6,8,0,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="3"/>
+                    <CheckBox Name="check_universal" Content="Універсал" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="66,28,0,0" VerticalAlignment="Top" Grid.Row="2"/>
+                    <CheckBox Name="check_microbus" Content="Мікроавтобус" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="156,28,0,0" VerticalAlignment="Top" Grid.Row="2"/>
+                    <CheckBox Name="check_standart" Content="Стандарт" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="2,28,0,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4"/>
+                    <CheckBox Name="check_premium" Content="Преміум" HorizontalAlignment="Left " Foreground="#FCF3CF" Margin="34,28,0,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="4"/>
+                    <CheckBox Name="check_elite" Content="Еліт" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="127,28,0,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="4"/>
+                    <CheckBox Name="check_refre" Content="Кондеціонер" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="66,60,0,0" VerticalAlignment="Top" Grid.Row="2"/>
                     <CheckBox Name="withoutAdress" Content="По місту" HorizontalAlignment="Left" Margin="124,9,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="#FCF3CF" Checked="withoutAdress_Checked"/>
-                    <Button Content="Замовити" HorizontalAlignment="Left" Margin="11,172,0,0" VerticalAlignment="Top" Width="135" Height="35" FontSize="16" FontWeight="Bold" FontStyle="Italic" Grid.Row="1" Click="Button_Click" Grid.Column="4">
+                    <Button Content="Замовити" HorizontalAlignment="Left" Margin="11,60,0,0" VerticalAlignment="Top" Width="135" Height="35" FontSize="16" FontWeight="Bold" FontStyle="Italic" Grid.Row="2" Click="Button_Click" Grid.Column="4">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <GradientStop Color="#FFC1C921" Offset="1"/>
@@ -65,6 +64,14 @@
                             </LinearGradientBrush>
                         </Button.Background>
                     </Button>
+                    <Canvas Name="canvasyk" HorizontalAlignment="Left" Height="61" Margin="0,9,0,0" Grid.Row="1" VerticalAlignment="Top" Width="540" Grid.ColumnSpan="5">
+                        <TextBox x:Name="kuda_adres" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="192" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Canvas.Left="92" Canvas.Top="20"/>
+                        <Label Content="Адрес:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FCF3CF" Canvas.Left="20" Canvas.Top="20"/>
+                        <Label Content="Дім:" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FCF3CF" Canvas.Left="298" Canvas.Top="20"/>
+                        <TextBox x:Name="kuda_dim" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="35" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Canvas.Left="330" Canvas.Top="20"/>
+                        <Label Content="Підїзд" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FCF3CF" Canvas.Left="407" Canvas.Top="20"/>
+                        <TextBox x:Name="kuda_entra" HorizontalAlignment="Left" Height="18" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="30" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Canvas.Left="455" Canvas.Top="20"/>
+                    </Canvas>
 
                 </Grid>
             </TabItem>

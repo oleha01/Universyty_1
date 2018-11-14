@@ -164,5 +164,10 @@ namespace PlatformTask_3
             
 
         }
+
+        private void addbuttom_Click(object sender, RoutedEventArgs e)
+        {
+            Button_Click_1(sender, e);
+        }
     }
 }
