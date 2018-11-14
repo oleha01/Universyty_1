@@ -1,38 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using Logic;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
+﻿//-----------------------------------------------------------------------
+// <copyright file="Reg.xaml.cs" company="LNU">
+//     Copyright (c) Top Coders. All rights reserved.
+// </copyright>
+// <author>Burdein Irina</author>
+// <author>Butry Oleg</author>
+// <author>Ivanova Antonina</author>
+// <author>Koltun Roman</author>
+// <date> " + DateTime.Now + @"</date>
+//-----------------------------------------------------------------------
 namespace PlatformTask_3
 {
+    using System.Windows;
+    using Logic;
+
     /// <summary>
     /// Логика взаимодействия для Reg.xaml
     /// </summary>
     public partial class Reg : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Reg" /> class.
+        /// </summary>
         public Reg()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Saves information about client.
+        /// </summary>
+        /// <param name="sender">The object that invoked the event that fired the event handler.</param>
+        /// <param name="e">Subclassed for more complex controls.</param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            this.DialogResult = true;
             Client c;
             if (profile_phone_Password.Text == profile_phone_password2.Text && profile_phone_Password.Text.Length > 4)
             {
@@ -41,7 +42,9 @@ namespace PlatformTask_3
                 Login.Seria();
             }
             else
+            {
                 MessageBox.Show("Пароль не співпадають, або коротші ніж 4 символи");
+            }
         }
     }
 }

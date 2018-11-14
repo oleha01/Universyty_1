@@ -20,14 +20,14 @@ namespace Logic
     public static class Login
     {
         /// <summary>
+        /// List of different orders from one client.
+        /// </summary>
+        public static List<Order> orders;
+
+        /// <summary>
         /// List of users.
         /// </summary>
         private static List<Client> users;
-
-        public static List<Order> orders;
-
-     
-    
 
         /// <summary>
         /// Boolean that indicate if user information was changed.
@@ -44,11 +44,8 @@ namespace Logic
             PathUsers = "orders.txt";
             XmlSerializer f = new XmlSerializer(typeof(List<Client>));
             XmlSerializer f1 = new XmlSerializer(typeof(List<Order>));
- 
-
 
             using (FileStream sr = new FileStream(PathPassword, FileMode.OpenOrCreate))
-
             {
                 try
                 {
@@ -71,10 +68,8 @@ namespace Logic
                     orders = new List<Order>();
                 }
             }
-
-
         }
-        
+
         /// <summary>
         /// Gets or sets path for password.
         /// </summary>
@@ -105,7 +100,6 @@ namespace Logic
         /// <summary>
         /// Serializes clients and paths.
         /// </summary>
-
         public static void Seria()
         {
             XmlSerializer f = new XmlSerializer(typeof(List<Client>));
@@ -114,6 +108,10 @@ namespace Logic
                 f.Serialize(sr, users);
             }
         }
+
+        /// <summary>
+        /// Serializes orders.
+        /// </summary>
         public static void SeriaOrd()
         {
             XmlSerializer f1 = new XmlSerializer(typeof(List<Order>));

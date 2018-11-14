@@ -37,7 +37,7 @@
                     <Label Content="Примітка:" HorizontalAlignment="Left" Margin="30,77,0,0" VerticalAlignment="Top" Foreground="#FCF3CF"/>
                     <TextBox Name="Prymitka" HorizontalAlignment="Left" Height="19" Margin="95,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="401" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" Grid.ColumnSpan="5"/>
                     <Label Content="Куди їхати" HorizontalAlignment="Left" Margin="30,1,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" FontStyle="Italic" Background="{x:Null}" Foreground="#DAF7A6" Grid.Row="1"/>
-                    <Button Name="addbuttom" Content="Добавити" HorizontalAlignment="Left" Margin="44,61,0,0" VerticalAlignment="Top" Width="75" FontStyle="Italic" Grid.Row="1" Click="addbuttom_Click">
+                    <Button Name="addbuttom" Content="Добавити" HorizontalAlignment="Left" Margin="44,61,0,0" VerticalAlignment="Top" Width="75" FontStyle="Italic" Grid.Row="1" Click="AddButtom_Click">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                                 <GradientStop Color="#FFC1C921" Offset="1"/>
@@ -55,7 +55,7 @@
                     <CheckBox Name="check_premium" Content="Преміум" HorizontalAlignment="Left " Foreground="#FCF3CF" Margin="34,28,0,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="4"/>
                     <CheckBox Name="check_elite" Content="Еліт" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="127,28,0,0" VerticalAlignment="Top" Grid.Row="2" Grid.Column="4"/>
                     <CheckBox Name="check_refre" Content="Кондеціонер" HorizontalAlignment="Left" Foreground="#FCF3CF" Margin="66,60,0,0" VerticalAlignment="Top" Grid.Row="2"/>
-                    <CheckBox Name="withoutAdress" Content="По місту" HorizontalAlignment="Left" Margin="124,9,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="#FCF3CF" Checked="withoutAdress_Checked"/>
+                    <CheckBox Name="withoutAdress" Content="По місту" HorizontalAlignment="Left" Margin="124,9,0,0" VerticalAlignment="Top" Grid.Row="1" Foreground="#FCF3CF" Checked="VithoutAdress_Checked"/>
                     <Button Content="Замовити" HorizontalAlignment="Left" Margin="11,60,0,0" VerticalAlignment="Top" Width="135" Height="35" FontSize="16" FontWeight="Bold" FontStyle="Italic" Grid.Row="2" Click="Button_Click" Grid.Column="4">
                         <Button.Background>
                             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">

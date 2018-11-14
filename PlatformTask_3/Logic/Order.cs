@@ -10,8 +10,8 @@
 //-----------------------------------------------------------------------
 namespace Logic
 {
-    using System.Collections.Generic;
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// The enumeration of different classes of cars.
@@ -75,49 +75,47 @@ namespace Logic
         /// </summary>
         private Address address2;
 
-        public string Time { get; set; }
-
-
         /// <summary>
         /// Initializes static members of the <see cref="Order" /> class.
         /// </summary>
-
         static Order()
         {
             ID = 0;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Order" /> class.
+        /// </summary>
         public Order()
         {
-            CarClassOrder = new List<CarClass>();
+            this.CarClassOrder = new List<CarClass>();
         }
-
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
         /// </summary>
-        /// <param name="phoneNumber">The user`s phone number.</param>
+        /// <param name="phoneNumber_">The user`s phone number.</param>
         /// <param name="city1">The name of the city.</param>
         /// <param name="street1">The name of the street.</param>
         /// <param name="house1">The number of the house.</param>
         /// <param name="carClassOrder1">The class of the car.</param>
+        /// <param name="time">When the order was made.</param>
         /// <param name="entrance1">The number enterence.</param>
         /// <param name="wihes">The additional wishes to order.</param>
-
-        public Order(string PhoneNumber_, string city1, string street1, string house1, List<CarClass> carClassOrder1,string time, string entrance1 = "", string wihes = "")
+        public Order(string phoneNumber_, string city1, string street1, string house1, List<CarClass> carClassOrder1, string time, string entrance1 = "", string wihes = "")
         {
             this.OrderID = 0;
             this.Address1 = new Address(city1, street1, house1, entrance1);
             this.Wishes = wihes;
-            this.PhoneNumber = PhoneNumber_;
+            this.PhoneNumber = phoneNumber_;
             this.CarClassOrder = carClassOrder1;
-            Time = time;
+            this.Time = time;
         }
- /// <summary>
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Order" /> class.
         /// </summary>
-        /// <param name="phoneNumber">The user`s phone number.</param>
+        /// <param name="phoneNumber_">The user`s phone number.</param>
         /// <param name="city1">The name of the city.</param>
         /// <param name="street1">The name of the street.</param>
         /// <param name="house1">The number of the house.</param>
@@ -128,28 +126,42 @@ namespace Logic
         /// <param name="entrance1">The number enterence.</param>
         /// <param name="entrance2">The number enterence of destination.</param>
         /// <param name="wihes">The additional wishes to order.</param>
-        public Order(string PhoneNumber_, string city1, string street1, string house1, string city2, string street2, string house2, List<CarClass> carClassOrder1, string entrance1="",string entrance2="", string wihes = "")
+        public Order(string phoneNumber_, string city1, string street1, string house1, string city2, string street2, string house2, List<CarClass> carClassOrder1, string entrance1 = "", string entrance2 = "", string wihes = "")
         {
             this.OrderID = 0;
             this.Address1 = new Address(city1, street1, house1, entrance1);
             this.Address2 = new Address(city2, street2, house2, entrance2);
             this.Wishes = wihes;
-            this.PhoneNumber = PhoneNumber_;
+            this.PhoneNumber = phoneNumber_;
             this.CarClassOrder = carClassOrder1;
         }
-      
-        public Order(string name,string PhoneNumber_, Address a1,Address a2, List<CarClass> carClassOrder1,string time, string wihes)
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Order" /> class.
+        /// </summary>
+        /// <param name="name">Name of the client.</param>
+        /// <param name="phoneNumber_">The user`s phone number.</param>
+        /// <param name="a1">Departure address.</param>
+        /// <param name="a2">Destination address.</param>
+        /// <param name="carClassOrder1">The class of the car.</param>
+        /// <param name="time">The time when the order was made.</param>
+        /// <param name="wihes">The additional wishes to order.</param>
+        public Order(string name, string phoneNumber_, Address a1, Address a2, List<CarClass> carClassOrder1, string time, string wihes)
         {
-            OrderID = 0;
-            Address1 = a1;
-            Address2 = a2;
-            Wishes = wihes;
-            ClientName = name;
-            PhoneNumber = PhoneNumber_;
-            CarClassOrder = carClassOrder1;
-            Time = time;
+            this.OrderID = 0;
+            this.Address1 = a1;
+            this.Address2 = a2;
+            this.Wishes = wihes;
+            this.ClientName = name;
+            this.PhoneNumber = phoneNumber_;
+            this.CarClassOrder = carClassOrder1;
+            this.Time = time;
         }
-       
+        
+        /// <summary>
+        /// Gets or sets the time when the order was made.
+        /// </summary>
+        public string Time { get; set; }
 
         /// <summary>
         /// Gets or sets the order ID.

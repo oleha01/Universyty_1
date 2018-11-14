@@ -1,24 +1,38 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Logic;
+﻿//-----------------------------------------------------------------------
+// <copyright file="UnitTestForDriver.cs" company="LNU">
+//     Copyright (c) Top Coders. All rights reserved.
+// </copyright>
+// <author>Burdein Irina</author>
+// <author>Butry Oleg</author>
+// <author>Ivanova Antonina</author>
+// <author>Koltun Roman</author>
+// <date> " + DateTime.Now + @"</date>
+//-----------------------------------------------------------------------using System;
 namespace UnitTestProject1
 {
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Logic;
+
     /// <summary>
     /// Сводное описание для UnitTestForDriver
     /// </summary>
     [TestClass]
     public class UnitTestForDriver
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnitTestForDriver" /> class.
+        /// </summary>
         public UnitTestForDriver()
         {
             //
             // TODO: добавьте здесь логику конструктора
             //
-            
         }
 
+        /// <summary>
+        /// Used to store information that is provided to unit tests.
+        /// </summary>
         private TestContext testContextInstance;
 
         /// <summary>
@@ -58,30 +72,41 @@ namespace UnitTestProject1
         // public void MyTestCleanup() { }
         //
         #endregion
-
+        /// <summary>
+        /// Tests car type.
+        /// </summary>
         [TestMethod]
         public void Test_CarType()
         {
             int id = Int32.Parse(Driver.Id.ToString());
-            
-            Driver first = new Driver( name:"Hawan",  id, surname: "Neron",  carClassOrder1: CarClass.Premium);
+
+            Driver first = new Driver(name: "Hawan", id, surname: "Neron", carClassOrder1: CarClass.Premium);
             if (first.CarCl != CarClass.Premium)
+            {
                 Assert.Fail();
-            
+            }
         }
+
+        /// <summary>
+        /// Tests drive.
+        /// </summary>
         [TestMethod]
         public void Test_Drive()
         {
             int id = Int32.Parse(Driver.Id.ToString());
-            Driver first = new Driver(Name: "Hawan",id, surname: "Neron", carClassOrder1: CarClass.Premium);
+            Driver first = new Driver(Name: "Hawan", id, surname: "Neron", carClassOrder1: CarClass.Premium);
             if (first.Name != "Hawan")
+            {
                 Assert.Fail();
+            }
             if (first.SurName != "Neron")
+            {
                 Assert.Fail();
+            }
             if (first.OrderID != id + 1)
+            {
                 Assert.Fail();
-
+            }
         }
-        
     }
 }
