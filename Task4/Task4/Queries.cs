@@ -12,21 +12,60 @@ namespace Task4
     {
         string connectionString;
 
-        SqlConnection connection;
+       public SqlConnection connection;
 
         SqlCommand command;
 
         SqlDataReader reader;
 
-        public Queries()
+        public delegate void Que();
+
+        public Que arrqueries;
+        public Queries(string s)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString;
-            SqlConnection connection = new SqlConnection(connectionString);
+            connectionString = s;
+             connection = new SqlConnection(connectionString);
             connection.Open();
+
+            arrqueries = Q1;
+            arrqueries += Q2;
+            arrqueries += Q3;
+            arrqueries += Q4;
+            arrqueries += Q5;
+            arrqueries += Q6;
+            arrqueries += Q7;
+            arrqueries += Q8;
+            arrqueries += Q9;
+            arrqueries += Q10;
+            arrqueries += Q11;
+            arrqueries += Q12;
+            arrqueries += Q13;
+            arrqueries += Q14;
+            arrqueries += Q15;
+            arrqueries += Q16;
+            arrqueries += Q17;
+            arrqueries += Q18;
+            arrqueries += Q19;
+            arrqueries += Q20;
+            arrqueries += Q21;
+            arrqueries += Q23;
+            arrqueries += Q24;
+            arrqueries += Q25;
+            arrqueries += Q26;
+            arrqueries += Q27;
+            arrqueries += Q28;
+            arrqueries += Q29;
+            arrqueries += Q30;
+            arrqueries += Q31;
+            arrqueries += Q32;
+            arrqueries += Q33;
+            arrqueries += Q34;
+            arrqueries += Q35;
         }
 
         public void Q1()
         {
+
            // 1.Show all info about the employee with ID 8.
             Console.WriteLine("1.Show all info about the employee with ID 8.");
             command = connection.CreateCommand();
@@ -196,7 +235,8 @@ namespace Task4
             //14.	Show first and last names of the employees as well as the count of orders
             //each of them have received during the year 1997 (use left join).
             Console.WriteLine("\nShow first and last names of the employees as well as the count of orders each of them have received during the year 1997 (use left join)");
-            command.CommandText = "SELECT e.FirstName, e.LastName, COUNT(o.EmployeeID) AS OrdersQuantity FROM Employees AS e LEFT JOIN Orders AS o ON o.EmployeeID=e.EmployeeID WHERE o.OrderDate>='1997-01-01' AND o.OrderDate<='1997-12-31' GROUP BY e.FirstName, e.LastName;";
+            command.CommandText = "SELECT e.FirstName, e.LastName, COUNT(o.EmployeeID) AS OrdersQuantity FROM Employees AS e LEFT JOIN Orders AS o ON o.EmployeeID=e.EmployeeID " +
+                "WHERE o.OrderDate>='01-01-1997' AND o.OrderDate<='31-12-1997' GROUP BY e.FirstName, e.LastName;";
             reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -209,7 +249,8 @@ namespace Task4
             //15.	Show first and last names of the employees as well as the count of
             //orders each of them have received during the year 1997 .
             Console.WriteLine("\nShow first and last names of the employees as well as the count of orders each of them have received during the year 1997 ");
-            command.CommandText = "SELECT e.FirstName, e.LastName, COUNT(o.EmployeeID) AS OrdersQuantity FROM Employees AS e LEFT JOIN Orders AS o ON o.EmployeeID=e.EmployeeID WHERE o.OrderDate>='1997-01-01' AND o.OrderDate<='1997-12-31' GROUP BY e.FirstName, e.LastName;";
+            command.CommandText = "SELECT e.FirstName, e.LastName, COUNT(o.EmployeeID) AS OrdersQuantity FROM Employees AS e LEFT JOIN Orders AS o ON o.EmployeeID=e.EmployeeID " +
+                "WHERE o.OrderDate>='01-01-1997' AND o.OrderDate<='31-12-1997' GROUP BY e.FirstName, e.LastName;";
             reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -222,7 +263,11 @@ namespace Task4
             //16.Show first and last names of the employees as well as the count of their orders shipped
             //after required date during the year 1997(use left join).
            Console.WriteLine("\nShow first and last names of the employees as well as the count of their orders shipped after required date during the year 1997(use left join) ");
-            command.CommandText = "SELECT E.FirstName, E.LastName, COUNT(O.EmployeeID) AS OrdersQuantity FROM Employees AS E LEFT JOIN Orders AS O ON O.EmployeeID = E.EmployeeID WHERE O.ShippedDate > O.RequiredDate AND O.OrderDate BETWEEN '1997-01-01' AND '1997-12-31' GROUP BY E.FirstName, E.LastName;";
+            command.CommandText = "SELECT E.FirstName, E.LastName, COUNT(O.EmployeeID) AS OrdersQuantity " +
+                "FROM Employees AS E " +
+                "LEFT JOIN Orders AS O " +
+                "ON O.EmployeeID = E.EmployeeID " +
+                "WHERE O.ShippedDate > O.RequiredDate AND O.OrderDate BETWEEN '01-01-1997' AND '31-12-1997' GROUP BY E.FirstName, E.LastName;";
             reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -310,7 +355,7 @@ namespace Task4
         {
             //23.	*Show the list of french customers’ names who used to order non-french products.
             Console.WriteLine("\nShow the list of french customers’ names who used to order non-french products.");
-            command.CommandText = "SELECT C.ContactName FROM Customers as C WHERE C.Country ='France' AND C.CustomerID IN (SELECT DISTINCT CustomerID FROM Orders AS O LEFT JOIN [Order Details] AS OD ON O.OrderID = OD.OrderIDLEFT JOIN [Products] AS P ON OD.ProductID = P.ProductID LEFT JOIN [Suppliers] AS S ON P.SupplierID = S.SupplierID WHERE S.Country <> 'France');";
+            command.CommandText = "SELECT C.ContactName FROM Customers as C WHERE C.Country ='France' AND C.CustomerID IN (SELECT DISTINCT CustomerID FROM Orders AS O LEFT JOIN [Order Details] AS OD ON O.OrderID = OD.OrderID LEFT JOIN [Products] AS P ON OD.ProductID = P.ProductID LEFT JOIN [Suppliers] AS S ON P.SupplierID = S.SupplierID WHERE S.Country <> 'France');";
             reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -362,7 +407,7 @@ namespace Task4
             //27.	*Show the list of product categories along with total ordering sums calculated
             //for the orders made for the products of each category, during the year 1997.
             Console.WriteLine("\n*Show the list of product categories along with total ordering sums calculated for the orders made for the products of each category, during the year 1997");
-            command.CommandText = "SELECT C.CategoryName, P.ProductName, COUNT (O.OrderID) AS OrdersAmount FROM Categories AS C LEFT JOIN Products AS P ON P.CategoryID = C.CategoryID LEFT JOIN [Order Details] AS OD ON OD.ProductID = P.ProductID LEFT JOIN Orders AS O ON O.OrderID = OD.OrderID WHERE O.OrderDate BETWEEN '1997-01-01' AND '1997-12-31' GROUP BY P.ProductName, C.CategoryName;";
+            command.CommandText = "SELECT C.CategoryName, P.ProductName, COUNT (O.OrderID) AS OrdersAmount FROM Categories AS C LEFT JOIN Products AS P ON P.CategoryID = C.CategoryID LEFT JOIN [Order Details] AS OD ON OD.ProductID = P.ProductID LEFT JOIN Orders AS O ON O.OrderID = OD.OrderID WHERE O.OrderDate BETWEEN '01-01-1997' AND '31-12-1997' GROUP BY P.ProductName, C.CategoryName;";
             reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -419,15 +464,15 @@ namespace Task4
             //LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes. 
             //The Notes field should contain your own name.
             int insertQuantity = 0;
-            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Burdeina', 'Ira', '1999-04-05', '2018-12-03', 'Topolna st. 78', 'Lviv', 'Ukraine', 'Smart');";
+            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Burdeina', 'Ira', '05-01-1999', '03-12-2018', 'Topolna st. 78', 'Lviv', 'Ukraine', 'Smart');";
             insertQuantity += command.ExecuteNonQuery();
-            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Ivanova', 'Tonia', '1999-11-14', '2018-12-03', 'Bandery st. 8', 'Lviv', 'Ukraine', 'Smart');";
+            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Ivanova', 'Tonia', '14-11-1999', '03-12-2018', 'Bandery st. 8', 'Lviv', 'Ukraine', 'Smart');";
             insertQuantity += command.ExecuteNonQuery();
-            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Butriy', 'Oleh',  '1999-09-01', '2018-12-03', 'SantaBarbara st. 73', 'Lviv', 'Ukraine', 'Smart');";
+            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Butriy', 'Oleh',  '01-09-1999', '03-12-2018', 'SantaBarbara st. 73', 'Lviv', 'Ukraine', 'Smart');";
             insertQuantity += command.ExecuteNonQuery();
-            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Koltun', 'Roman',  '1999-12-03', '2018-12-03', 'Stus st. 18', 'Lviv', 'Ukraine', 'Smart');";
+            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Koltun', 'Roman',  '03-12-1999', '03-12-2018', 'Stus st. 18', 'Lviv', 'Ukraine', 'Smart');";
             insertQuantity += command.ExecuteNonQuery();
-            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Loik', 'Nottet',  '1989-09-07', '2018-12-03', 'Loren st. 16', 'Paris', 'France', 'Smart');";
+            command.CommandText = "INSERT INTO Employees(LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes) VALUES ('Loik', 'Nottet',  '07-01-1999', '03-12-2018', 'Loren st. 16', 'Paris', 'France', 'Smart');";
             insertQuantity += command.ExecuteNonQuery();
             Console.WriteLine("\nInserted {0} rows", insertQuantity);
         }
@@ -463,7 +508,8 @@ namespace Task4
         {
             //34.	*Change the HireDate field in all your records to current date.
             Console.WriteLine("\nChange the HireDate field in all your records to current date.");
-            command.CommandText = "UPDATE Employees SET HireDate = '2018-12-03' WHERE Notes = 'Smart' ;";
+            command = connection.CreateCommand();
+            command.CommandText = "UPDATE Employees SET HireDate = '03-12-2018' WHERE Notes like 'Smart' ;";
             reader = command.ExecuteReader();
             while (reader.Read())
             {
@@ -475,7 +521,7 @@ namespace Task4
         {
             ////35. * Delete one of your records.
             int deletedQuantity = 0;
-            command.CommandText = "DELETE FROM Employees WHERE LastName='Nottet' AND FirstName='Loik';";
+            command.CommandText = "DELETE FROM Employees WHERE LastName='Nottet' AND FirstName like 'Loik';";
             deletedQuantity += command.ExecuteNonQuery();
             Console.WriteLine("Deleted {0} rows", deletedQuantity);
             connection.Close();
@@ -484,43 +530,79 @@ namespace Task4
         {
             //viklik 
             Q1();
+            Console.ReadKey();
             Q2();
+            Console.ReadKey();
             Q3();
+            Console.ReadKey();
             Q4();
+            Console.ReadKey();
             Q5();
+            Console.ReadKey();
             Q6();
+            Console.ReadKey();
             Q7();
+            Console.ReadKey();
             Q8();
+            Console.ReadKey();
             Q9();
+            Console.ReadKey();
             Q10();
+            Console.ReadKey();
             //---------
+
             Q11();
+            Console.ReadKey();
             Q12();
+            Console.ReadKey();
             Q13();
+            Console.ReadKey();
             Q14();
+            Console.ReadKey();
             Q15();
+            Console.ReadKey();
             Q16();
+            Console.ReadKey();
             Q17();
+            Console.ReadKey();
             Q18();
+            Console.ReadKey();
             Q19();
+            Console.ReadKey();
             Q20();
+            Console.ReadKey();
             //---------
             Q21();
+            Console.ReadKey();
             Q22();
+            Console.ReadKey();
             Q23();
+            Console.ReadKey();
             Q24();
+            Console.ReadKey();
             Q25();
+            Console.ReadKey();
             Q26();
+            Console.ReadKey();
             Q27();
+            Console.ReadKey();
             Q28();
+            Console.ReadKey();
             Q29();
-            Q30();
+            Console.ReadKey();
+            Q30(); Console.ReadKey();
             //---------
             Q31();
+            Console.ReadKey();
+
             Q32();
+            Console.ReadKey();
             Q33();
+            Console.ReadKey();
             Q34();
+            Console.ReadKey();
             Q35();
+            Console.ReadKey();
 
         }
     }
