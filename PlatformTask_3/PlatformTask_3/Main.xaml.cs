@@ -18,6 +18,7 @@ namespace PlatformTask_3
     using System.Windows.Controls;
     using System.Windows.Media;
     using Logic;
+    using System.Data.Entity;
 
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
@@ -69,15 +70,9 @@ namespace PlatformTask_3
             this.zvidky_Dim.Text = profile_phone_Dom.Text;
             this.zvidky_entra.Text = profile_phone_Entran.Text;
             this.withoutAdress.Unchecked += this.WithoutAdress_UnChecked;
-            this.table.ItemsSource = Login.orders.Where((i) => 
-            {
-                if (i.ClientName == client.Login)
-                {
-                    return true;
-                }
-
-                return false;
-            });
+            List<Order> tt = new List<Order>();
+            table.ItemsSource =  Login.bs.Orders.Where(o => o.ClientName == client.Login).ToList() ;
+            
             this.ars.Add(this.kuda_adres);
             this.dom.Add(this.kuda_dim);
             this.entr.Add(this.kuda_entra);
@@ -91,9 +86,11 @@ namespace PlatformTask_3
             profile_firstname.Text = this.client.Name;
             profile_lastname.Text = this.client.LastName;
             profile_phone.Text = this.client.Phone;
-            profile_phone_Dom.Text = this.client.Adress_Client.House;
-            profile_phone_adres.Text = this.client.Adress_Client.Street;
-            profile_phone_Entran.Text = this.client.Adress_Client.Entrance;
+            Address adr111 = client.Adress_Client;
+            
+            profile_phone_Dom.Text = adr111.House;
+            profile_phone_adres.Text = adr111.Street;
+            profile_phone_Entran.Text = adr111.Entrance;
         }
 
         /// <summary>
@@ -118,18 +115,10 @@ namespace PlatformTask_3
             }
 
             Order newor = new Order(this.client.Login, this.client.Phone, first, sec, this.cr, time, Prymitka.Text);
-            Login.orders.Add(newor);
-            Login.SeriaOrd();
+            Login.bs.Orders.Add(newor);
+            Login.bs.SaveChanges();
             table.ItemsSource = new List<Order>();
-            table.ItemsSource = Login.orders.Where((i) => 
-            {
-                if (i.ClientName == client.Login)
-                {
-                    return true;
-                }
-
-                return false;
-            });
+            table.ItemsSource = Login.bs.Orders.Where(o => o.ClientName == client.Login).ToList();
         }
 
         /// <summary>

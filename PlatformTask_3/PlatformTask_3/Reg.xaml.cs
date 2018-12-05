@@ -38,8 +38,8 @@ namespace PlatformTask_3
             if (profile_phone_Password.Text == profile_phone_password2.Text && profile_phone_Password.Text.Length > 4)
             {
                 c = new Client(profile_firstname.Text, profile_lastname.Text, profile_phone_login.Text, profile_phone_Password.Text, profile_phone.Text, new Address(profile_phone_sity.Text, profile_phone_adres.Text, profile_phone_Dom.Text, profile_phone_Entran.Text));
-                Login.Users.Add(c);
-                Login.Seria();
+                Login.bs.Clients.Add(c);
+                Login.bs.SaveChanges();
             }
             else
             {

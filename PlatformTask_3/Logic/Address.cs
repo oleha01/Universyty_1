@@ -11,6 +11,8 @@
 namespace Logic
 {
     using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     /// Encapsulates the physical address of the user.
@@ -42,6 +44,9 @@ namespace Logic
             this.House = house;
             this.Entrance = entrance;
         }
+        public virtual ICollection<Client> Clients { get; set; }
+        [Key]
+        public int AddressID { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the city.

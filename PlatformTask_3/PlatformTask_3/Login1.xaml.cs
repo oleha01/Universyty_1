@@ -12,6 +12,8 @@
 namespace PlatformTask_3
 {
     using System.Windows;
+    using System;
+    using System.Data.Entity;
     using Logic;
 
     /// <summary>
@@ -25,6 +27,20 @@ namespace PlatformTask_3
         public MainWindow()
         {
             this.InitializeComponent();
+           this. Closed += WindowClosed;
+            //Login.bs.Addresss.Load();
+            Login.bs.Addresss.Load();
+
+            Login.bs.Orders.Load();
+         
+          
+        
+        }
+
+        private void WindowClosed(object sender, EventArgs e)
+        {
+            Login.bs.SaveChanges();
+            Login.bs.Dispose();
         }
 
         /// <summary>
@@ -36,15 +52,16 @@ namespace PlatformTask_3
         {
             ////Client cl = new Client("Roma", "Koltun", "Rom32", "222", "+380989233113", new Address("Lviv", "Horodozka", "5", "0"));
             Client cl = null;
-            cl = Login.Users.Find(cl1 => 
-            {
-                if (cl1.Login == login.Text)
-                {
-                    return true;
-                }
 
-                return false;
-            });
+            foreach(var el in Login.bs.Clients)
+            {
+                if (el.Login == login.Text)
+                {
+                    cl = el;
+                    break;
+                }
+            }
+            
             if (cl != null && cl.Password == password.Text)
             {
                 Window1 ww = new Window1(cl);

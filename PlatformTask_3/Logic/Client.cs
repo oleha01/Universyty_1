@@ -11,7 +11,8 @@
 namespace Logic
 {
     using System;
-
+    using System.ComponentModel.DataAnnotations;
+    using System.Collections.Generic;
     /// <summary>
     /// Encapsulates the information about the user.
     /// </summary>
@@ -30,7 +31,7 @@ namespace Logic
             this.Phone = string.Empty;
             this.Adress_Client = new Address();
         }
-
+        
         /// <summary>
         /// Initializes a new instance of the <see cref="Client" /> class.
         /// </summary>
@@ -50,7 +51,8 @@ namespace Logic
             this.Adress_Client = new Address();
             this.Adress_Client = ad;
         }
-
+        [Key]
+        public int ClientID { get; set; }
         /// <summary>
         /// Gets or sets the first name of the user.
         /// </summary>

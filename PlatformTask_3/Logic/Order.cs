@@ -12,6 +12,7 @@ namespace Logic
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     /// <summary>
     /// The enumeration of different classes of cars.
@@ -58,16 +59,21 @@ namespace Logic
         /// <summary>
         /// New ID.
         /// </summary>
+       
         public static int ID;
 
         /// <summary>
         /// Boolean that indicates whether this is the final address.
         /// </summary>
         private bool isFinalAddress = false;
+         
+      
 
+ [Key]
         /// <summary>
         /// Order ID.
         /// </summary>
+       
         private int orderID;
 
         /// <summary>

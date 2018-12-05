@@ -12,6 +12,7 @@ namespace Logic
 {
     using System.Collections.Generic;
     using System.IO;
+    using System.Data.Entity;
     using System.Xml.Serialization;
 
     /// <summary>
@@ -22,12 +23,14 @@ namespace Logic
         /// <summary>
         /// List of different orders from one client.
         /// </summary>
-        public static List<Order> orders;
+
 
         /// <summary>
         /// List of users.
         /// </summary>
-        private static List<Client> users;
+
+
+        public static BaseContext bs;
 
         /// <summary>
         /// Boolean that indicate if user information was changed.
@@ -39,86 +42,14 @@ namespace Logic
         /// </summary>
         static Login()
         {
-            PathPassword = "password.txt";
 
-            PathUsers = "orders.txt";
-            XmlSerializer f = new XmlSerializer(typeof(List<Client>));
-            XmlSerializer f1 = new XmlSerializer(typeof(List<Order>));
+            bs = new BaseContext();
 
-            using (FileStream sr = new FileStream(PathPassword, FileMode.OpenOrCreate))
-            {
-                try
-                {
-                    users = f.Deserialize(sr) as List<Client>;
-                }
-                catch
-                {
-                    users = new List<Client>();
-                }
-            }
+            //XmlSerializer f = new XmlSerializer(typeof(List<Client>));
 
-            using (FileStream sr = new FileStream(PathUsers, FileMode.OpenOrCreate))
-            {
-                try
-                {
-                    orders = f1.Deserialize(sr) as List<Order>;
-                }
-                catch
-                {
-                    orders = new List<Order>();
-                }
-            }
-        }
 
-        /// <summary>
-        /// Gets or sets path for password.
-        /// </summary>
-        public static string PathPassword { get; set; }
-
-        /// <summary>
-        /// Gets or sets path for user information.
-        /// </summary>
-        public static string PathUsers { get; set; }
-
-        /// <summary>
-        /// Gets or sets list of users.
-        /// </summary>
-        public static List<Client> Users
-        {
-            get
-            {
-                ifChanged = true;
-                return users;
-            }
-
-            set
-            {
-                users = value;
-            }
-        }
-
-        /// <summary>
-        /// Serializes clients and paths.
-        /// </summary>
-        public static void Seria()
-        {
-            XmlSerializer f = new XmlSerializer(typeof(List<Client>));
-            using (FileStream sr = new FileStream(PathPassword, FileMode.OpenOrCreate))
-            {
-                f.Serialize(sr, users);
-            }
-        }
-
-        /// <summary>
-        /// Serializes orders.
-        /// </summary>
-        public static void SeriaOrd()
-        {
-            XmlSerializer f1 = new XmlSerializer(typeof(List<Order>));
-            using (FileStream sr = new FileStream(PathUsers, FileMode.OpenOrCreate))
-            {
-                f1.Serialize(sr, orders);
-            }
-        }
+        }        
+   
+        
     }
 }
