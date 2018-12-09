@@ -11,8 +11,9 @@
 namespace Logic
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary>
     /// Encapsulates the information about the user.
     /// </summary>
@@ -51,8 +52,13 @@ namespace Logic
             this.Adress_Client = new Address();
             this.Adress_Client = ad;
         }
+
+        /// <summary>
+        /// Gets or sets client id.
+        /// </summary>
         [Key]
         public int ClientID { get; set; }
+
         /// <summary>
         /// Gets or sets the first name of the user.
         /// </summary>

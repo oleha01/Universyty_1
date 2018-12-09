@@ -7,13 +7,14 @@
 // <author>Ivanova Antonina</author>
 // <author>Koltun Roman</author>
 // <date> " + DateTime.Now + @"</date>
-//-----------------------------------------------------------------------using System;
+//-----------------------------------------------------------------------
+using System;
 namespace UnitTestProject1
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Logic;
-
+    
     /// <summary>
     /// Tests for class <see cref="Order" />.
     /// </summary>

@@ -14,7 +14,7 @@ namespace PlatformTask_3
     using Logic;
 
     /// <summary>
-    /// Логика взаимодействия для Reg.xaml
+    /// Interaction logic for <see cref="Reg"/>
     /// </summary>
     public partial class Reg : Window
     {
@@ -30,7 +30,7 @@ namespace PlatformTask_3
         /// Saves information about client.
         /// </summary>
         /// <param name="sender">The object that invoked the event that fired the event handler.</param>
-        /// <param name="e">Subclassed for more complex controls.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             this.DialogResult = true;
@@ -38,8 +38,8 @@ namespace PlatformTask_3
             if (profile_phone_Password.Text == profile_phone_password2.Text && profile_phone_Password.Text.Length > 4)
             {
                 c = new Client(profile_firstname.Text, profile_lastname.Text, profile_phone_login.Text, profile_phone_Password.Text, profile_phone.Text, new Address(profile_phone_sity.Text, profile_phone_adres.Text, profile_phone_Dom.Text, profile_phone_Entran.Text));
-                Login.unit.Clients.Create(c);
-                Login.unit.Save();
+                Login.Unit.Clients.Create(c);
+                Login.Unit.Save();
             }
             else
             {

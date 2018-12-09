@@ -11,8 +11,8 @@
 namespace Logic
 {
     using System.Collections.Generic;
-    using System.IO;
     using System.Data.Entity;
+    using System.IO;
     using System.Xml.Serialization;
 
     /// <summary>
@@ -20,18 +20,6 @@ namespace Logic
     /// </summary>
     public static class Login
     {
-        /// <summary>
-        /// List of different orders from one client.
-        /// </summary>
-
-
-        /// <summary>
-        /// List of users.
-        /// </summary>
-
-        public static UnitOfWork unit;
-
-
         /// <summary>
         /// Boolean that indicate if user information was changed.
         /// </summary>
@@ -42,14 +30,14 @@ namespace Logic
         /// </summary>
         static Login()
         {
+            Unit = new UnitOfWork();
 
-            unit = new UnitOfWork();
+            ////XmlSerializer f = new XmlSerializer(typeof(List<Client>));
+        }
 
-            //XmlSerializer f = new XmlSerializer(typeof(List<Client>));
-
-
-        }        
-   
-        
+        /// <summary>
+        /// Gets or sets list of users.
+        /// </summary>
+        public static UnitOfWork Unit { get; set; }
     }
 }

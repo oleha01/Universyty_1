@@ -44,7 +44,15 @@ namespace Logic
             this.House = house;
             this.Entrance = entrance;
         }
+
+        /// <summary>
+        /// Gets or sets collection of clients.
+        /// </summary>
         public virtual ICollection<Client> Clients { get; set; }
+
+        /// <summary>
+        /// Gets or sets address id.
+        /// </summary>
         [Key]
         public int AddressID { get; set; }
 

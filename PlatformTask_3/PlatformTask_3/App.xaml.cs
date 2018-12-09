@@ -13,7 +13,7 @@ namespace PlatformTask_3
     using System.Windows;
 
     /// <summary>
-    /// Логика взаимодействия для App.xaml
+    /// Interaction logic for App
     /// </summary>
     public partial class App : Application
     {

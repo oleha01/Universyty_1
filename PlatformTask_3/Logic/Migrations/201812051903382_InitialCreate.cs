@@ -1,10 +1,26 @@
+//-----------------------------------------------------------------------
+// <copyright file="201812051903382_InitialCreate.cs" company="LNU">
+//     Copyright (c) Top Coders. All rights reserved.
+// </copyright>
+// <author>Burdein Irina</author>
+// <author>Butry Oleg</author>
+// <author>Ivanova Antonina</author>
+// <author>Koltun Roman</author>
+// <date> " + DateTime.Now + @"</date>
+//-----------------------------------------------------------------------
 namespace Logic.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+
+    /// <summary>
+    /// Creates initial migration.
+    /// </summary>
     public partial class InitialCreate : DbMigration
     {
+        /// <summary>
+        /// Creates migration.
+        /// </summary>
         public override void Up()
         {
             CreateTable(
@@ -52,20 +68,22 @@ namespace Logic.Migrations
                 .ForeignKey("dbo.Addresses", t => t.Address2_AddressID)
                 .Index(t => t.Address1_AddressID)
                 .Index(t => t.Address2_AddressID);
-            
         }
-        
+
+        /// <summary>
+        /// Cancels migration.
+        /// </summary>
         public override void Down()
         {
-            DropForeignKey("dbo.Orders", "Address2_AddressID", "dbo.Addresses");
-            DropForeignKey("dbo.Orders", "Address1_AddressID", "dbo.Addresses");
-            DropForeignKey("dbo.Clients", "Adress_Client_AddressID", "dbo.Addresses");
-            DropIndex("dbo.Orders", new[] { "Address2_AddressID" });
-            DropIndex("dbo.Orders", new[] { "Address1_AddressID" });
-            DropIndex("dbo.Clients", new[] { "Adress_Client_AddressID" });
-            DropTable("dbo.Orders");
-            DropTable("dbo.Clients");
-            DropTable("dbo.Addresses");
+            this.DropForeignKey("dbo.Orders", "Address2_AddressID", "dbo.Addresses");
+            this.DropForeignKey("dbo.Orders", "Address1_AddressID", "dbo.Addresses");
+            this.DropForeignKey("dbo.Clients", "Adress_Client_AddressID", "dbo.Addresses");
+            this.DropIndex("dbo.Orders", new[] { "Address2_AddressID" });
+            this.DropIndex("dbo.Orders", new[] { "Address1_AddressID" });
+            this.DropIndex("dbo.Clients", new[] { "Adress_Client_AddressID" });
+            this.DropTable("dbo.Orders");
+            this.DropTable("dbo.Clients");
+            this.DropTable("dbo.Addresses");
         }
     }
 }

@@ -13,15 +13,15 @@ namespace PlatformTask_3
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Data.Entity;
     using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Media;
     using Logic;
-    using System.Data.Entity;
 
     /// <summary>
-    /// Логика взаимодействия для Window1.xaml
+    /// Interaction logic for Window1
     /// </summary>
     public partial class Window1 : Window
     {
@@ -46,7 +46,7 @@ namespace PlatformTask_3
         private List<TextBox> dom = new List<TextBox>();
 
         /// <summary>
-        /// List of enterences.
+        /// List of entrances.
         /// </summary>
         private List<TextBox> entr = new List<TextBox>();
 
@@ -71,23 +71,23 @@ namespace PlatformTask_3
             this.zvidky_entra.Text = profile_phone_Entran.Text;
             this.withoutAdress.Unchecked += this.WithoutAdress_UnChecked;
             List<Order> tt = new List<Order>();
-            table.ItemsSource =  Login.unit.Orders.GetAll().Where(o => o.ClientName == client.Login).ToList() ;
-            
+            table.ItemsSource = Login.Unit.Orders.GetAll().Where(o => o.ClientName == this.client.Login).ToList();
+
             this.ars.Add(this.kuda_adres);
             this.dom.Add(this.kuda_dim);
             this.entr.Add(this.kuda_entra);
         }
 
         /// <summary>
-        /// Save inputed information.
+        /// Save information.
         /// </summary>
         private void ProfilePull()
         {
             profile_firstname.Text = this.client.Name;
             profile_lastname.Text = this.client.LastName;
             profile_phone.Text = this.client.Phone;
-            Address adr111 = client.Adress_Client;
-            
+            Address adr111 = this.client.Adress_Client;
+
             profile_phone_Dom.Text = adr111.House;
             profile_phone_adres.Text = adr111.Street;
             profile_phone_Entran.Text = adr111.Entrance;
@@ -97,7 +97,7 @@ namespace PlatformTask_3
         /// Save information about the order.
         /// </summary>
         /// <param name="sender">The object that invoked the event that fired the event handler.</param>
-        /// <param name="e">Subclassed for more complex controls.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Address first = new Address(this.client.Adress_Client.City, zvidky_adres.Text, zvidky_Dim.Text, zvidky_entra.Text);
@@ -115,10 +115,10 @@ namespace PlatformTask_3
             }
 
             Order newor = new Order(this.client.Login, this.client.Phone, first, sec, this.cr, time, Prymitka.Text);
-            Login.unit.Orders.Create(newor);
-            Login.unit.Save();
+            Login.Unit.Orders.Create(newor);
+            Login.Unit.Save();
             table.ItemsSource = new List<Order>();
-            table.ItemsSource = Login.unit.Orders.GetAll().Where(o => o.ClientName == client.Login).ToList();
+            table.ItemsSource = Login.Unit.Orders.GetAll().Where(o => o.ClientName == this.client.Login).ToList();
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace PlatformTask_3
         /// Make part of the form invisible if checkbox is checked.
         /// </summary>
         /// <param name="sender">The object that invoked the event that fired the event handler.</param>
-        /// <param name="e">Subclassed for more complex controls.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void VithoutAdress_Checked(object sender, RoutedEventArgs e)
         {
             this.Invisible(this.kuda_adres);
@@ -157,7 +157,7 @@ namespace PlatformTask_3
         /// Make part of the form Visible if checkbox is unchecked.
         /// </summary>
         /// <param name="sender">The object that invoked the event that fired the event handler.</param>
-        /// <param name="e">Subclassed for more complex controls.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void WithoutAdress_UnChecked(object sender, RoutedEventArgs e)
         {
             this.Visible(this.kuda_adres);
@@ -177,7 +177,7 @@ namespace PlatformTask_3
         /// Changes window appearance.
         /// </summary>
         /// <param name="sender">The object that invoked the event that fired the event handler.</param>
-        /// <param name="e">Subclassed for more complex controls.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Canvas can = new Canvas();
@@ -226,7 +226,7 @@ namespace PlatformTask_3
         /// Changes window appearance.
         /// </summary>
         /// <param name="sender">The object that invoked the event that fired the event handler.</param>
-        /// <param name="e">Subclassed for more complex controls.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void AddButtom_Click(object sender, RoutedEventArgs e)
         {
             this.Button_Click_1(sender, e);
