@@ -51,6 +51,11 @@ namespace Logic
             this.Adress_Client = new Address();
             this.Adress_Client = ad;
         }
+        public Client(string name, string phone)
+        {
+            this.Name = name;
+            this.Phone = phone;
+        }
         [Key]
         public int ClientID { get; set; }
         /// <summary>
