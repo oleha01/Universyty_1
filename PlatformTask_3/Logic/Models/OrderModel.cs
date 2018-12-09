@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Class1.cs" company="LNU">
+// <copyright file="OrderModel.cs" company="LNU">
 //     Copyright (c) Top Coders. All rights reserved.
 // </copyright>
 // <author>Burdein Irina</author>
@@ -19,7 +19,7 @@ namespace Logic.Models
     /// <summary>
     /// Encapsulates the information about the order to use in database.
     /// </summary>
-    public class Order
+    public class OrderModel
     {
         /// <summary>
         /// Boolean that indicate whether the address is final.

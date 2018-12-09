@@ -54,6 +54,17 @@ namespace Logic
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Client" /> class.
+        /// </summary>
+        /// <param name="name">Client`s name.</param>
+        /// <param name="phone">Client`s phone number.</param>
+        public Client(string name, string phone)
+        {
+            this.Name = name;
+            this.Phone = phone;
+        }
+
+        /// <summary>
         /// Gets or sets client id.
         /// </summary>
         [Key]

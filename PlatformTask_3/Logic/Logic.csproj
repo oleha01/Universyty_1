@@ -79,7 +79,7 @@
       <DependentUpon>201812052057170_loader1122.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Class1.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repo\AddresRepo.cs" />
