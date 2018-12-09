@@ -71,7 +71,7 @@ namespace PlatformTask_3
             this.zvidky_entra.Text = profile_phone_Entran.Text;
             this.withoutAdress.Unchecked += this.WithoutAdress_UnChecked;
             List<Order> tt = new List<Order>();
-            table.ItemsSource =  Login.bs.Orders.Where(o => o.ClientName == client.Login).ToList() ;
+            table.ItemsSource =  Login.unit.Orders.GetAll().Where(o => o.ClientName == client.Login).ToList() ;
             
             this.ars.Add(this.kuda_adres);
             this.dom.Add(this.kuda_dim);
@@ -115,10 +115,10 @@ namespace PlatformTask_3
             }
 
             Order newor = new Order(this.client.Login, this.client.Phone, first, sec, this.cr, time, Prymitka.Text);
-            Login.bs.Orders.Add(newor);
-            Login.bs.SaveChanges();
+            Login.unit.Orders.Create(newor);
+            Login.unit.Save();
             table.ItemsSource = new List<Order>();
-            table.ItemsSource = Login.bs.Orders.Where(o => o.ClientName == client.Login).ToList();
+            table.ItemsSource = Login.unit.Orders.GetAll().Where(o => o.ClientName == client.Login).ToList();
         }
 
         /// <summary>

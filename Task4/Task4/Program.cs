@@ -32,9 +32,9 @@ namespace Task4
         {
             Queries que = new Queries(ConfigurationManager.ConnectionStrings["NorthwindConnectionString"].ConnectionString);
 
-            que.RunAll();
+            //   que.RunAll();
             ////que.Q34();
-          
+            que.Q20();
              que.connection.Close();
             Console.ReadKey();
         }

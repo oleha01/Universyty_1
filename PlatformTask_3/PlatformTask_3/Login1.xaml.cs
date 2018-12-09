@@ -29,9 +29,10 @@ namespace PlatformTask_3
             this.InitializeComponent();
            this. Closed += WindowClosed;
             //Login.bs.Addresss.Load();
-            Login.bs.Addresss.Load();
-
-            Login.bs.Orders.Load();
+           // Login.bs.Addresss.Load();
+           
+            //Login.bs.Orders.Load();
+            
          
           
         
@@ -39,8 +40,8 @@ namespace PlatformTask_3
 
         private void WindowClosed(object sender, EventArgs e)
         {
-            Login.bs.SaveChanges();
-            Login.bs.Dispose();
+            Login.unit.Save() ;
+            Login.unit.Dispose();
         }
 
         /// <summary>
@@ -53,7 +54,7 @@ namespace PlatformTask_3
             ////Client cl = new Client("Roma", "Koltun", "Rom32", "222", "+380989233113", new Address("Lviv", "Horodozka", "5", "0"));
             Client cl = null;
 
-            foreach(var el in Login.bs.Clients)
+            foreach (var el in Login.unit.Clients.GetAll())
             {
                 if (el.Login == login.Text)
                 {

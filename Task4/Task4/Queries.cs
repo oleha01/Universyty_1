@@ -420,7 +420,11 @@ namespace Task4
         public void Q20()
         {
             Console.WriteLine("\nShow the list of customers’ names who used to order the ‘Tofu’ product.");
-            this.command.CommandText = "SELECT C.ContactName FROM Customers AS C JOIN Orders AS O ON O.CustomerID = C.CustomerID JOIN [Order Details] AS OD ON O.OrderID = OD.OrderID JOIN Products AS P ON P.ProductID = OD.ProductID WHERE P.ProductName = 'Tofu'; ";
+            this.command.CommandText = "SELECT Customers.ContactName FROM Customers " +
+                "JOIN Orders ON Orders.CustomerID = Customers.CustomerID" +
+                " JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID" +
+                " JOIN Products ON Products.ProductID = [Order Details].ProductID" +
+                " WHERE Products.ProductName = 'Tofu'; ";
             this.reader = this.command.ExecuteReader();
             while (this.reader.Read())
             {

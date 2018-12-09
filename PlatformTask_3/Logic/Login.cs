@@ -29,8 +29,8 @@ namespace Logic
         /// List of users.
         /// </summary>
 
+        public static UnitOfWork unit;
 
-        public static BaseContext bs;
 
         /// <summary>
         /// Boolean that indicate if user information was changed.
@@ -43,7 +43,7 @@ namespace Logic
         static Login()
         {
 
-            bs = new BaseContext();
+            unit = new UnitOfWork();
 
             //XmlSerializer f = new XmlSerializer(typeof(List<Client>));
 
