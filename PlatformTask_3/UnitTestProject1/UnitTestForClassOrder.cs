@@ -8,14 +8,14 @@
 // <author>Koltun Roman</author>
 // <date> " + DateTime.Now + @"</date>
 //-----------------------------------------------------------------------using System;
-namespace UnitTestProject1
+/*namespace UnitTestProject1
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Logic;
 
     /// <summary>
-    /// Tests for class <see cref="Order" />.
+    /// Tests for class <see cref="OrderModel" />.
     /// </summary>
     [TestClass]
     public class UnitTestForClassOrder
@@ -26,9 +26,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void Designer1_Test1_WithoutEntrance()
         {
-            int id = Int32.Parse(Order.ID.ToString());
+            int id = Int32.Parse(OrderModel.ID.ToString());
 
-            Order first = new Order(name: "login1", phoneNumber_: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1");
+            OrderModel first = new OrderModel(name: "login1", phoneNumber_: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1");
 
             if (first.PhoneNumber != "+380981122333")
             {
@@ -62,8 +62,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void Designer1_Test2_WithEntrance()
         {
-            int id = Int32.Parse(Order.ID.ToString());
-            Order first = new Order(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", entrance1: "3");
+            int id = Int32.Parse(OrderModel.ID.ToString());
+            OrderModel first = new OrderModel(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", entrance1: "3");
             if (first.PhoneNumber != "+380981122333")
             {
                 Assert.Fail();
@@ -96,11 +96,11 @@ namespace UnitTestProject1
         [TestMethod]
         public void Designer1_Test3_ID()
         {
-            int id = Int32.Parse(Order.ID.ToString());
-            Order[] arr = new Order[5];
+            int id = Int32.Parse(OrderModel.ID.ToString());
+            OrderModel[] arr = new OrderModel[5];
             for (int i = 0; i < 5; i++)
             {
-                arr[i] = new Order(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", entrance1: "3");
+                arr[i] = new OrderModel(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", entrance1: "3");
             }
             for (int i = 0; i < 5; i++)
             {
@@ -117,8 +117,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void Designer1_Test4_CarType()
         {
-            int id = Int32.Parse(Order.ID.ToString());
-            Order first = new Order(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", entrance1: "3", carClassOrder1: CarClass.Premium);
+            int id = Int32.Parse(OrderModel.ID.ToString());
+            OrderModel first = new OrderModel(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", entrance1: "3", carClassOrder1: CarClass.Premium);
             if (first.CarClassOrder != CarClass.Premium)
             {
                 Assert.Fail();
@@ -131,8 +131,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void Designer2_Test1_WithoutEntrance()
         {
-            int id = Int32.Parse(Order.ID.ToString());
-            Order first = new Order(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32");
+            int id = Int32.Parse(OrderModel.ID.ToString());
+            OrderModel first = new OrderModel(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32");
             if (first.PhoneNumber != "+380981122333")
             {
                 Assert.Fail();
@@ -181,8 +181,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void Designer2_Test2_WithEntrance()
         {
-            int id = Int32.Parse(Order.ID.ToString());
-            Order first = new Order(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32", entrance1: "2", entrance2: "1");
+            int id = Int32.Parse(OrderModel.ID.ToString());
+            OrderModel first = new OrderModel(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32", entrance1: "2", entrance2: "1");
             if (first.PhoneNumber != "+380981122333")
             {
 
@@ -232,11 +232,11 @@ namespace UnitTestProject1
         [TestMethod]
         public void Designer2_Test3_ID()
         {
-            int id = Int32.Parse(Order.ID.ToString());
-            Order[] arr = new Order[5];
+            int id = Int32.Parse(OrderModel.ID.ToString());
+            OrderModel[] arr = new OrderModel[5];
             for (int i = 0; i < 5; i++)
             {
-                arr[i] = new Order(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32", entrance1: "2", entrance2: "1");
+                arr[i] = new OrderModel(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32", entrance1: "2", entrance2: "1");
             }
             for (int i = 0; i < 5; i++)
             {
@@ -253,8 +253,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void Designer2_Test4_CarType()
         {
-            int id = Int32.Parse(Order.ID.ToString());
-            Order first = new Order(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32", entrance1: "2", entrance2: "1", carClassOrder1: CarClass.Premium);
+            int id = Int32.Parse(OrderModel.ID.ToString());
+            OrderModel first = new OrderModel(phoneNumber: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", city2: "Lviv1", street2: "Med.Pechery", house2: "32", entrance1: "2", entrance2: "1", carClassOrder1: CarClass.Premium);
 
             if (first.CarClassOrder != CarClass.Premium)
             {
@@ -262,4 +262,4 @@ namespace UnitTestProject1
             }
         }
     }
-}
+}*/

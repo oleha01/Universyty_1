@@ -7,13 +7,13 @@ namespace Logic.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class loader : IMigrationMetadata
+    public sealed partial class Loader1122 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(loader));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Loader1122));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812052050178_loader"; }
+            get { return "201812052057170_loader1122"; }
         }
         
         string IMigrationMetadata.Source

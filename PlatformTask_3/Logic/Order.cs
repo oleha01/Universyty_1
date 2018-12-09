@@ -20,12 +20,12 @@ namespace Logic
     public enum CarClass
     {
         /// <summary>
-        /// Standart class.
+        /// Standard class.
         /// </summary>
         Standard,
 
         /// <summary>
-        /// Econom class.
+        /// Economic class.
         /// </summary>
         Econom,
 
@@ -57,23 +57,19 @@ namespace Logic
     public class Order
     {
         /// <summary>
-        /// New ID.
+        /// New id.
         /// </summary>
-       
-        public static int ID;
+        private static int id;
 
         /// <summary>
         /// Boolean that indicates whether this is the final address.
         /// </summary>
         private bool isFinalAddress = false;
-         
-      
 
- [Key]
         /// <summary>
-        /// Order ID.
+        /// OrderModel id.
         /// </summary>
-       
+        [Key]
         private int orderID;
 
         /// <summary>
@@ -86,7 +82,7 @@ namespace Logic
         /// </summary>
         static Order()
         {
-            ID = 0;
+            id = 0;
         }
 
         /// <summary>
@@ -106,7 +102,7 @@ namespace Logic
         /// <param name="house1">The number of the house.</param>
         /// <param name="carClassOrder1">The class of the car.</param>
         /// <param name="time">When the order was made.</param>
-        /// <param name="entrance1">The number enterence.</param>
+        /// <param name="entrance1">The number entrance.</param>
         /// <param name="wihes">The additional wishes to order.</param>
         public Order(string phoneNumber_, string city1, string street1, string house1, List<CarClass> carClassOrder1, string time, string entrance1 = "", string wihes = "")
         {
@@ -129,8 +125,8 @@ namespace Logic
         /// <param name="street2">The name of the street of destination.</param>
         /// <param name="house2">The number of the house of destination.</param>
         /// <param name="carClassOrder1">The class of the car.</param>
-        /// <param name="entrance1">The number enterence.</param>
-        /// <param name="entrance2">The number enterence of destination.</param>
+        /// <param name="entrance1">The number entrance.</param>
+        /// <param name="entrance2">The number entrance of destination.</param>
         /// <param name="wihes">The additional wishes to order.</param>
         public Order(string phoneNumber_, string city1, string street1, string house1, string city2, string street2, string house2, List<CarClass> carClassOrder1, string entrance1 = "", string entrance2 = "", string wihes = "")
         {
@@ -170,7 +166,7 @@ namespace Logic
         public string Time { get; set; }
 
         /// <summary>
-        /// Gets or sets the order ID.
+        /// Gets or sets the order id.
         /// </summary>
         public int OrderID
         {
@@ -181,7 +177,7 @@ namespace Logic
 
             set
             {
-                this.orderID = ++ID;
+                this.orderID = ++id;
             }
         }
 

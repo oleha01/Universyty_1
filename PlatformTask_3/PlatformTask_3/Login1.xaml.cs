@@ -11,13 +11,13 @@
 
 namespace PlatformTask_3
 {
-    using System.Windows;
     using System;
     using System.Data.Entity;
+    using System.Windows;
     using Logic;
 
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Interaction logic for MainWindow
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -27,33 +27,34 @@ namespace PlatformTask_3
         public MainWindow()
         {
             this.InitializeComponent();
-           this. Closed += WindowClosed;
-            //Login.bs.Addresss.Load();
-            Login.bs.Addresss.Load();
+            this.Closed += this.WindowClosed;
+            Login.BS.Addresss.Load();
 
-            Login.bs.Orders.Load();
-         
-          
-        
+            Login.BS.Orders.Load();
         }
 
+        /// <summary>
+        /// Close window.
+        /// </summary>
+        /// <param name="sender">The object that invoked the event that fired the event handler.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void WindowClosed(object sender, EventArgs e)
         {
-            Login.bs.SaveChanges();
-            Login.bs.Dispose();
+            Login.BS.SaveChanges();
+            Login.BS.Dispose();
         }
 
         /// <summary>
         /// Login when the button was clicked.
         /// </summary>
         /// <param name="sender">The object that invoked the event that fired the event handler.</param>
-        /// <param name="e">Subclassed for more complex controls.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ////Client cl = new Client("Roma", "Koltun", "Rom32", "222", "+380989233113", new Address("Lviv", "Horodozka", "5", "0"));
             Client cl = null;
 
-            foreach(var el in Login.bs.Clients)
+            foreach (var el in Login.BS.Clients)
             {
                 if (el.Login == login.Text)
                 {
@@ -61,7 +62,7 @@ namespace PlatformTask_3
                     break;
                 }
             }
-            
+
             if (cl != null && cl.Password == password.Text)
             {
                 Window1 ww = new Window1(cl);
@@ -79,7 +80,7 @@ namespace PlatformTask_3
         /// Hide this window and show registration window.
         /// </summary>
         /// <param name="sender">The object that invoked the event that fired the event handler.</param>
-        /// <param name="e">Subclassed for more complex controls.</param>
+        /// <param name="e">Subclass for more complex controls.</param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Reg f = new Reg();

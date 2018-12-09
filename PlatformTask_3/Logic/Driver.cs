@@ -32,7 +32,7 @@ namespace Logic
         /// Initializes a new instance of the <see cref="Driver" /> class.
         /// </summary>
         /// <param name="n">The first name of the driver.</param>
-        /// <param name="id">The driver`s ID.</param>
+        /// <param name="id">The driver`s id.</param>
         /// <param name="sur">The last name of the driver.</param>
         /// <param name="car">The driver`s car.</param>
         public Driver(string n, string id, string sur, CarClass car = CarClass.Econom)
@@ -54,7 +54,7 @@ namespace Logic
         public string SurName { get; set; }
 
         /// <summary>
-        /// Gets or sets the driver`s ID.
+        /// Gets or sets the driver`s id.
         /// </summary>
         public string Id { get; set; }
 

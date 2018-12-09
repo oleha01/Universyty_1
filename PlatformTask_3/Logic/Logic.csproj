@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,29 +50,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="BaseContext.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Driver.cs" />
     <Compile Include="Login.cs" />
-    <Compile Include="Migrations\201812051903382_InitialCreate.cs" />
-    <Compile Include="Migrations\201812051903382_InitialCreate.Designer.cs">
-      <DependentUpon>201812051903382_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\InitialCreate.cs" />
+    <Compile Include="Migrations\InitialCreate.Designer.cs">
+      <DependentUpon>InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812052050178_loader.cs" />
-    <Compile Include="Migrations\201812052050178_loader.Designer.cs">
-      <DependentUpon>201812052050178_loader.cs</DependentUpon>
+    <Compile Include="Migrations\Loader.cs" />
+    <Compile Include="Migrations\Loader.Designer.cs">
+      <DependentUpon>Loader.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812052053042_loader11.cs" />
-    <Compile Include="Migrations\201812052053042_loader11.Designer.cs">
-      <DependentUpon>201812052053042_loader11.cs</DependentUpon>
+    <Compile Include="Migrations\Loader11.cs" />
+    <Compile Include="Migrations\Loader11.Designer.cs">
+      <DependentUpon>Loader11.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812052057170_loader1122.cs" />
-    <Compile Include="Migrations\201812052057170_loader1122.Designer.cs">
-      <DependentUpon>201812052057170_loader1122.cs</DependentUpon>
+    <Compile Include="Migrations\Loader1122.cs" />
+    <Compile Include="Migrations\Loader1122.Designer.cs">
+      <DependentUpon>Loader1122.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Class1.cs" />
-    <Compile Include="Order.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Order.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,17 +82,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812051903382_InitialCreate.resx">
-      <DependentUpon>201812051903382_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\InitialCreate.resx">
+      <DependentUpon>InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812052050178_loader.resx">
-      <DependentUpon>201812052050178_loader.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Loader.resx">
+      <DependentUpon>Loader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812052053042_loader11.resx">
-      <DependentUpon>201812052053042_loader11.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Loader11.resx">
+      <DependentUpon>Loader11.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812052057170_loader1122.resx">
-      <DependentUpon>201812052057170_loader1122.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Loader1122.resx">
+      <DependentUpon>Loader1122.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
