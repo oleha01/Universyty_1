@@ -78,9 +78,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void Test_CarType()
         {
-            int id = Int32.Parse(Driver.Id.ToString());
-
-            Driver first = new Driver(name: "Hawan", id, surname: "Neron", carClassOrder1: CarClass.Premium);
+            Driver first = new Driver(n: "Hawan", id:"1", sur: "Neron", car: CarClass.Premium);
             if (first.CarCl != CarClass.Premium)
             {
                 Assert.Fail();
@@ -93,17 +91,12 @@ namespace UnitTestProject1
         [TestMethod]
         public void Test_Drive()
         {
-            int id = Int32.Parse(Driver.Id.ToString());
-            Driver first = new Driver(Name: "Hawan", id, surname: "Neron", carClassOrder1: CarClass.Premium);
+            Driver first = new Driver(n: "Hawan", id:"2", sur: "Neron", car: CarClass.Premium);
             if (first.Name != "Hawan")
             {
                 Assert.Fail();
             }
             if (first.SurName != "Neron")
-            {
-                Assert.Fail();
-            }
-            if (first.OrderID != id + 1)
             {
                 Assert.Fail();
             }

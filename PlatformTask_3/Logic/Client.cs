@@ -106,7 +106,7 @@ namespace Logic
         /// <returns>Returns the information about the user as the string.</returns>
         public override string ToString()
         {
-            return string.Format("{0}, {1}, {2},{3},{4}", this.Name, this.LastName, this.Login, this.Password, this.Phone);
+            return string.Format("{0}, {1}, {2}, {3}, {4}", this.Name, this.LastName, this.Login, this.Password, this.Phone);
         }
     }
 }

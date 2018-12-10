@@ -55,25 +55,25 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Migrations\201812051903382_InitialCreate.cs">
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Migrations\201812051903382_InitialCreate.Designer.cs">
       <DependentUpon>201812051903382_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201812052050178_loader.cs">
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Migrations\201812052050178_loader.Designer.cs">
       <DependentUpon>201812052050178_loader.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201812052053042_loader11.cs">
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Migrations\201812052053042_loader11.Designer.cs">
       <DependentUpon>201812052053042_loader11.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201812052057170_loader1122.cs">
-      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
     <Compile Include="Migrations\201812052057170_loader1122.Designer.cs">
       <DependentUpon>201812052057170_loader1122.cs</DependentUpon>
