@@ -116,9 +116,12 @@ namespace PlatformTask_3
 
             Order newor = new Order(this.client.Login, this.client.Phone, first, sec, this.cr, time, Prymitka.Text);
             Login.Unit.Orders.Create(newor);
+
+            table.ItemsSource = null;
+            var rr = Login.Unit.Orders.GetAll().Where(o => o.ClientName == this.client.Login).ToList();
+            rr.Add(newor);
+            table.ItemsSource = rr;
             Login.Unit.Save();
-            table.ItemsSource = new List<Order>();
-            table.ItemsSource = Login.Unit.Orders.GetAll().Where(o => o.ClientName == this.client.Login).ToList();
         }
 
         /// <summary>

@@ -123,12 +123,15 @@ namespace UnitTestProject1
         public void Designer1_Test4_CarType()
         {
             List<CarClass> CarClassOrder = new List<CarClass>();
+            CarClassOrder.Add(CarClass.Econom);
             int id = Int32.Parse(Order.ID.ToString());
             Order first = new Order(phoneNumber_: "+380981122333", city1: "Lviv", street1: "Universytetcka", house1: "1", entrance1: "3", carClassOrder1: CarClassOrder, time: "", wihes: "");
-            /*if (first.CarClassOrder != CarClass.Premium)
+           
+            foreach(var el in CarClassOrder)
             {
-                Assert.Fail();
-            }*/
+                Assert.AreEqual(el, CarClass.Econom);
+            }
+
         }
 
         /// <summary>
